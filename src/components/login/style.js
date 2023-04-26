@@ -1,45 +1,51 @@
+import { Link } from "react-router-dom"
 import styled from "styled-components"
 
-export const Container = styled.div`
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-`
-export const Input = styled.input`
-  font-size: 20px;
-  padding: 0.5rem;
-  border-radius: 10px;
-  margin-bottom: 1rem;
-  width: 100%;
-  height: 60px;
-  border: none;
-  padding: 0 20px;
-`
-export const SigninButton = styled.button`
-  font-size: 20px;
-  margin: 20px 0;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  width: 100%;
-  height: 50px;
+export const LoginPageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* height: 100vh; */
 `
 
-export const SignupWrapper = styled.div`
-  text-align: center;
+export const Logo = styled.img`
+  width: 400px;
+  height: 400px;
+`
+
+export const LoginFormContainer = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
+export const Input = styled.input`
+  width: 130%;
+  margin-bottom: 20px;
+  padding: 15px; /* 수정 */
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 18px;
+`
+
+export const SubmitButton = styled.button`
+  width: 130%;
+  padding: 15px; /* 수정 */
+  border-radius: 5px;
+  border: none;
+  background-color: green;
+  color: #fff;
+  font-size: 18px; /* 수정 */
+  cursor: pointer;
+`
+
+export const SignUpText = styled.div`
+  margin-top: 20px;
   font-size: 16px;
 `
 
-export const SignupButton = styled.button`
-  font-weight: bold;
-  margin: 0 10px;
-  cursor: pointer;
-`
-
-export const Label = styled.label`
-  position: relative;
-`
-
-export const ErrorWrapper = styled.div`
-  height: 20px;
+export const SignUpLink = styled(Link)`
+  color: #007bff;
+  text-decoration: none;
 `

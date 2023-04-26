@@ -1,11 +1,10 @@
 import React from "react"
-import LoginForm from "../../components/login"
 import { Container } from "react-bootstrap"
+import LoginForm from "../../components/login/index"
 
 function LoginPage() {
   return (
     <Container>
-      {/* <Logo src="/img/1.png" alt="logo임" /> */}
       <LoginForm />
     </Container>
   )
