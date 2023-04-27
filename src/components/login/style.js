@@ -11,7 +11,7 @@ export const LoginPageContainer = styled.div`
 
 export const Logo = styled.img`
   width: 150px;
-  height: 200px;
+  /* height: 200px; */
   margin: 50px auto;
 `
 
