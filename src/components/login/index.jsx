@@ -16,10 +16,10 @@ function LoginForm() {
 
   return (
     <>
-      <S.LoginPageContainer>{!showLoginForm && <S.Logo src="/img/1.png" alt="logo" />}</S.LoginPageContainer>
+      <S.LoginPageContainer>{!showLoginForm && <S.Logo src="/img/2.png" alt="logo" />}</S.LoginPageContainer>
       {showLoginForm && (
         <S.LoginPageContainer>
-          <S.Logo src="/img/1.png" alt="logo" />
+          <S.Logo src="/img/2.png" alt="logo" />
           <S.LoginFormContainer>
             <S.Input type="text" placeholder="아이디" />
             <S.Input type="password" placeholder="비밀번호" />
