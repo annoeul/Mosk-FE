@@ -1,52 +1,59 @@
-import { Link } from "react-router-dom"
 import styled from "styled-components"
 
-export const LoginPageContainer = styled.div`
+export const Wrapper = styled.div`
+  height: 100vh;
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /* background: black; */
+`
+
+export const FormContainer = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 20px;
+`
+
+export const LoginForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  /* height: 100vh; */
+  border: 1px solid #ccc;
+  padding: 20px;
+  width: 100%;
+  background: #b2e3ed;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* background-color: #ccc; */
 `
 
-export const Logo = styled.img`
-  width: 150px;
-  /* height: 200px; */
-  margin: 50px auto;
-`
-
-export const LoginFormContainer = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+export const FormTitle = styled.h2`
+  margin-bottom: 20px;
 `
 
 export const Input = styled.input`
-  width: 130%;
-  margin-bottom: 20px;
-  padding: 15px; /* 수정 */
+  padding: 10px;
+  margin: 10px;
+  width: 100%;
   border-radius: 5px;
   border: 1px solid #ccc;
-  font-size: 18px;
-`
-
-export const SubmitButton = styled.button`
-  width: 130%;
-  padding: 15px; /* 수정 */
-  border-radius: 5px;
-  border: none;
-  background-color: green;
-  color: #fff;
-  font-size: 18px; /* 수정 */
-  cursor: pointer;
-`
-
-export const SignUpText = styled.div`
-  margin-top: 20px;
   font-size: 16px;
 `
 
-export const SignUpLink = styled(Link)`
-  color: #007bff;
-  text-decoration: none;
+export const SubmitButton = styled.button`
+  background-color: #0077ff;
+  color: #fff;
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+
+  &:hover {
+    background-color: #005bcc;
+  }
 `
