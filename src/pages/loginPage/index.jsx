@@ -1,11 +1,16 @@
 import React from "react"
+import Logo from "../../components/common/logo"
+import LoginForm from "../../components/login"
+import * as S from "./style"
 import { Container } from "react-bootstrap"
-import LoginForm from "../../components/login/index"
 
 function LoginPage() {
   return (
     <Container>
-      <LoginForm />
+      <S.Wrapper>
+        <Logo />
+        <LoginForm />
+      </S.Wrapper>
     </Container>
   )
 }
