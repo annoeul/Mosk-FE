@@ -1,11 +1,17 @@
 import React from "react"
+import Logo from "../../components/common/logo"
+import * as S from "./style"
+import { Container } from "react-bootstrap"
 import RegisterForm from "../../components/register"
 
 function RegisterPage() {
   return (
-    <div>
-      <RegisterForm />
-    </div>
+    <Container>
+      <S.Wrapper>
+        <Logo />
+        <RegisterForm />
+      </S.Wrapper>
+    </Container>
   )
 }
 
