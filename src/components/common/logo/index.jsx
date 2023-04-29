@@ -4,9 +4,9 @@ import { Container } from "react-bootstrap"
 
 function Logo() {
   return (
-    <Container>
-      <S.Logo src="img/logo.png" />
-    </Container>
+    <S.Wrapper>
+      <S.Logo />
+    </S.Wrapper>
   )
 }
 
