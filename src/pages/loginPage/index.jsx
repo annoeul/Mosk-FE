@@ -7,10 +7,8 @@ import { Container } from "react-bootstrap"
 function LoginPage() {
   return (
     <Container>
-      <S.Wrapper>
-        <Logo />
-        <LoginForm />
-      </S.Wrapper>
+      <Logo size={100} />
+      <LoginForm />
     </Container>
   )
 }

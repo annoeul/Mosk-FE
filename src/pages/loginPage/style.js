@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const Wrapper = styled.div`
-  height: 100vh;
+  /* height: 100vh; */
   background: #92d1de;
   display: flex;
   text-align: center;
@@ -11,6 +11,9 @@ export const Wrapper = styled.div`
   /* min-width: 720px; */
 `
 
+export const LogoWrapper = styled.div`
+  text-align: center;
+`
 // export const Wrapper = styled.div`
 //   display: flex;
 //   text-align: center;
