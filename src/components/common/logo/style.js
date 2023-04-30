@@ -9,14 +9,26 @@ export const Wrapper = styled.div`
   /* background-color: red; */
 `
 
-export const Logo = styled.div`
-  justify-content: flex-end;
-  align-items: flex-end;
-  background-image: url("/img/logo.png");
-  background-position: right;
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 100vh;
-  padding-top: 66.66%; /* 3:2 aspect ratio */
-  margin-right: 20px;
+export const LogoWrapper = styled.div`
+  text-align: center;
+`
+// export const Logo = styled.div`
+//   justify-content: flex-end;
+//   align-items: flex-end;
+//   background-image: url("/img/logo.png");
+//   background-position: right;
+//   background-size: contain;
+//   background-repeat: no-repeat;
+//   width: 80%;
+//   height: 50vh;
+//   padding-top: 50%;
+//   margin-right: 20px;
+// `
+
+export const Logo = styled.img`
+  width: ${({ size }) => size}px;
+  margin-top: 10px;
+  /* height: ${({ size }) => size}px; */
+  /* width: 2%;
+  margin: 0 3%; */
 `
