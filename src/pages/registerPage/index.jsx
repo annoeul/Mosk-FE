@@ -3,14 +3,13 @@ import Logo from "../../components/common/logo"
 import * as S from "./style"
 import { Container } from "react-bootstrap"
 import RegisterForm from "../../components/register"
+import { Outlet } from "react-router-dom"
 
 function RegisterPage() {
   return (
     <Container>
-      <S.Wrapper>
-        <Logo />
-        <RegisterForm />
-      </S.Wrapper>
+      <Logo size={80} />
+      <RegisterForm />
     </Container>
   )
 }
