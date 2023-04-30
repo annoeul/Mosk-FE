@@ -27,7 +27,7 @@ export const LogoWrapper = styled.div`
 
 export const Logo = styled.img`
   width: ${({ size }) => size}px;
-  margin-top: 10px;
+  margin-top: 15%;
   /* height: ${({ size }) => size}px; */
   /* width: 2%;
   margin: 0 3%; */
