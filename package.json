@@ -11,6 +11,7 @@
     "proxy": "http://2303.team.callon.kr"
   },
   "dependencies": {
+    "@mui/icons-material": "^5.11.16",
     "bootstrap": "^5.2.3",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.4",
