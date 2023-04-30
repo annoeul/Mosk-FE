@@ -1,7 +1,13 @@
 import React from "react"
+import { Container } from "react-bootstrap"
+import TopBar from "../common/topbar"
 
 function Home() {
-  return <div>메인화면입니다</div>
+  return (
+    <>
+      <TopBar />
+    </>
+  )
 }
 
 export default Home
