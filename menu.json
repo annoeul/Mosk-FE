@@ -1,39 +1,163 @@
 {
   "menu": [
     {
-      "id": 1,
-      "category": "main",
-      "menuName": "ice Americano",
-      "menuPrice": "3000",
-      "description": "아메리카노임1"
+      "id": "coffee",
+      "category": "커피",
+      "items": [
+        {
+          "id": 1,
+          "name": "아메리카노",
+          "description": "에스프레소와 물이 가장 기본적인 커피",
+          "price": 2500,
+          "options": ["샷 추가", "시럽 추가"]
+        },
+        {
+          "id": 2,
+          "name": "카페 라떼",
+          "description": "에스프레소와 우유가 섞인 커피",
+          "price": 3500,
+          "options": ["샷 추가", "시럽 추가"]
+        },
+        {
+          "id": 3,
+          "name": "카푸치노",
+          "description": "에스프레소와 우유 그리고 우유 거품이 얹어진 커피",
+          "price": 3500,
+          "options": ["샷 추가", "시럽 추가"]
+        },
+        {
+          "id": 4,
+          "name": "에스프레소 마키아또",
+          "description": "에스프레소 위에 거품을 올린 것",
+          "price": 2500,
+          "options": ["시럽 추가"]
+        }
+      ]
     },
     {
-      "id": 2,
-      "category": "main",
-      "menuName": "ice Americano2",
-      "menuPrice": "4000",
-      "description": "아메리카노임2"
+      "id": "beverage",
+      "category": "음료",
+      "items": [
+        {
+          "id": 5,
+          "name": "레몬에이드",
+          "description": "상큼한 레몬과 달콤한 설탕이 들어간 음료",
+          "price": 4000,
+          "options": ["얼음 추가"]
+        },
+        {
+          "id": 6,
+          "name": "자몽에이드",
+          "description": "상큼한 자몽과 달콤한 설탕이 들어간 음료",
+          "price": 4500,
+          "options": ["얼음 추가"]
+        },
+        {
+          "id": 7,
+          "name": "청귤에이드",
+          "description": "청귤과 달콤한 설탕이 들어간 음료",
+          "price": 4500,
+          "options": ["얼음 추가"]
+        },
+        {
+          "id": 8,
+          "name": "생수",
+          "description": "100% 순수한 물",
+          "price": 1500,
+          "options": []
+        }
+      ]
     },
     {
-      "id": 3,
-      "category": "main",
-      "menuName": "ice Americano3",
-      "menuPrice": "5000",
-      "description": "아메리카노임3"
+      "id": "tea",
+      "category": "차",
+      "items": [
+        {
+          "id": 9,
+          "name": "얼그레이",
+          "description": "블랙 티에 베르가못 향을 더한 차",
+          "price": 3000,
+          "options": ["얼음 추가", "레몬 추가"]
+        },
+        {
+          "id": 10,
+          "name": "그린티",
+          "description": "녹차의 대표적인 차",
+          "price": 3000,
+          "options": ["얼음 추가", "레몬 추가", "허니 추가"]
+        },
+        {
+          "id": 11,
+          "name": "루이보스",
+          "description": "남아프리카의 식물로 만든 차",
+          "price": 3500,
+          "options": ["얼음 추가"]
+        }
+      ]
     },
     {
-      "id": 4,
-      "category": "main",
-      "menuName": "ice Americano4",
-      "menuPrice": "6000",
-      "description": "아메리카노임4"
+      "id": "smoothie",
+      "category": "스무디",
+      "items": [
+        {
+          "id": 12,
+          "name": "딸기 스무디",
+          "description": "신선한 딸기로 만든 과일 스무디",
+          "price": 5000,
+          "options": ["얼음 추가", "허니 추가"]
+        },
+        {
+          "id": 13,
+          "name": "망고 스무디",
+          "description": "달콤한 망고로 만든 과일 스무디",
+          "price": 5500,
+          "options": ["얼음 추가", "허니 추가"]
+        },
+        {
+          "id": 14,
+          "name": "블루베리 스무디",
+          "description": "건강한 블루베리로 만든 과일 스무디",
+          "price": 5500,
+          "options": ["얼음 추가", "허니 추가"]
+        },
+        {
+          "id": 15,
+          "name": "플레인 요거트 스무디",
+          "description": "담백한 플레인 요거트로 만든 스무디",
+          "price": 4500,
+          "options": ["얼음 추가"]
+        }
+      ]
     },
     {
-      "id": 5,
-      "category": "main",
-      "menuName": "ice Americano5",
-      "menuPrice": "5000",
-      "description": "아메리카노임5"
+      "id": "dessert",
+      "category": "디저트",
+      "items": [
+        {
+          "id": 16,
+          "name": "치즈케이크",
+          "description": "부드럽고 진한 치즈로 만든 케이크",
+          "price": 6000
+        },
+        {
+          "id": 17,
+          "name": "초콜릿 케이크",
+          "description": "풍부한 초콜릿으로 만든 케이크",
+          "price": 5500
+        },
+        {
+          "id": 18,
+          "name": "블루베리 머핀",
+          "description": "상큼한 블루베리가 들어간 머핀",
+          "price": 3000
+        },
+        {
+          "id": 19,
+          "name": "카라멜 팝콘",
+          "description": "달콤한 카라멜로 만든 팝콘",
+          "price": 2500
+        }
+      ]
     }
   ]
 }
