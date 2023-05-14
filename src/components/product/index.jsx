@@ -1,23 +1,18 @@
 import { Container } from "@material-ui/core"
 import * as S from "./style"
 
-import one from "../../data/one"
-
-function Product({ name, price, description }) {
+function Product(props) {
+  // console.log(props)
   return (
     <Container>
-      <S.ProductWrapper
-        onClick={() => {
-          alert("asd")
-        }}
-      >
+      <S.ProductWrapper onClick={() => {}}>
         <S.ProductImg src="" />
         <S.ProductName>
-          {name}
+          {props.name}
           <br />
-          {price}
+          {props.price} {/* props.price 값을 표시 */}
         </S.ProductName>
-        <S.ProductImg src="/img/logo.png" size={30}></S.ProductImg>
+        <S.ProductImg src="/img/logo.png" size={30} />
       </S.ProductWrapper>
     </Container>
   )

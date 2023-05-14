@@ -24,4 +24,5 @@ export const ProductName = styled.h3`
   top: 6px;
   font-size: 20px;
   text-align: start;
+  padding-left: 120px;
 `
