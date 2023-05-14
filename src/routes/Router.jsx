@@ -1,6 +1,6 @@
 import React from "react"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import KioskMain from "../components/kioskmain/index"
+import KioskMain from "../pages/kioskmain"
 
 // import LoginPage from "../pages/loginPage"
 // import RegisterPage from "../pages/registerPage"
