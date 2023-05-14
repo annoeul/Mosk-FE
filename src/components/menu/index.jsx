@@ -1,25 +1,21 @@
-import React, { useEffect, useState } from "react"
+// Menu.jsx
+import React from "react"
 import Product from "../product"
-import { MenuWrapper } from "./style"
+import * as S from "./style"
 
-function Menu(props) {
-  const [menus, setMenu] = useState(props.items || [])
+function Menu({ items, selectedCategory }) {
+  const filteredItems = items.find((category) => category.id === selectedCategory)
 
-  useEffect(() => {
-    setMenu(props.items || [])
-  }, [props.items])
-
-  // console.log(props.items)
-  // console.log(menus)
+  if (!filteredItems) {
+    return <div>상품이 없습니다.</div>
+  }
 
   return (
-    <MenuWrapper>
-      {menus.map((menu, i) => {
-        // console.log(i) // JSX 외부에서 console.log 실행
-
-        return <Product key={menu.id} name={menu.menuName} description={menu.description} price={menu.menuPrice} />
-      })}
-    </MenuWrapper>
+    <S.MenuWrapper>
+      {filteredItems.items.map((item) => (
+        <Product key={item.id} name={item.name} price={item.price} description={item.description} />
+      ))}
+    </S.MenuWrapper>
   )
 }
 

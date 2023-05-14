@@ -1,18 +1,16 @@
+// Product.jsx
+import React from "react"
 import { Container } from "@material-ui/core"
 import * as S from "./style"
 
-function Product(props) {
-  // console.log(props)
+function Product({ name, price, description }) {
   return (
     <Container>
       <S.ProductWrapper onClick={() => {}}>
-        <S.ProductImg src="" />
-        <S.ProductName>
-          {props.name}
-          <br />
-          {props.price} {/* props.price 값을 표시 */}
-        </S.ProductName>
         <S.ProductImg src="/img/logo.png" size={30} />
+
+        <S.ProductName>{name}</S.ProductName>
+        <S.ProductPrice>{price}원</S.ProductPrice>
       </S.ProductWrapper>
     </Container>
   )

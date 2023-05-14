@@ -14,15 +14,20 @@ export const ProductWrapper = styled.div`
 
 export const ProductImg = styled.img`
   width: ${({ size }) => size}px;
+  display: flex;
+  align-self: flex-end;
 `
 
-export const ProductName = styled.h3`
+export const ProductName = styled.h1`
   /* color: white; */
-  position: relative;
+  /* position: relative; */
   /* left: 20px; */
-  right: 125px;
-  top: 6px;
+  /* right: 125px; */
+  /* top: 6px; */
   font-size: 20px;
-  text-align: start;
-  padding-left: 120px;
+  /* text-align: start; */
+  /* padding-left: 120px; */
+`
+export const ProductPrice = styled.h3`
+  align-items: center;
 `
