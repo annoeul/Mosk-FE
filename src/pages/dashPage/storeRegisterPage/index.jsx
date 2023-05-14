@@ -1,6 +1,6 @@
 import React from "react"
 import StoreRegisterForm from "../../components/storeRegister"
-import Logo from "../../components/common/logo"
+import Logo from "../../../components/common/logo"
 import { Container } from "react-bootstrap"
 
 function StorePage() {
