@@ -1,0 +1,39 @@
+{
+  "menu": [
+    {
+      "id": 1,
+      "category": "main",
+      "menuName": "ice Americano",
+      "menuPrice": "3000",
+      "description": "아메리카노임1"
+    },
+    {
+      "id": 2,
+      "category": "main",
+      "menuName": "ice Americano2",
+      "menuPrice": "4000",
+      "description": "아메리카노임2"
+    },
+    {
+      "id": 3,
+      "category": "main",
+      "menuName": "ice Americano3",
+      "menuPrice": "5000",
+      "description": "아메리카노임3"
+    },
+    {
+      "id": 4,
+      "category": "main",
+      "menuName": "ice Americano4",
+      "menuPrice": "6000",
+      "description": "아메리카노임4"
+    },
+    {
+      "id": 5,
+      "category": "main",
+      "menuName": "ice Americano5",
+      "menuPrice": "5000",
+      "description": "아메리카노임5"
+    }
+  ]
+}
