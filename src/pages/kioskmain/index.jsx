@@ -21,6 +21,13 @@ function KioskMain() {
   }
 
   useEffect(() => {
+    // items 데이터가 변경될 때마다 첫 번째 카테고리의 id를 선택한 카테고리로 설정
+    if (items && items.length > 0) {
+      setSelectedCategory(items[0].id)
+    }
+  }, [items])
+
+  useEffect(() => {
     getData()
   }, [])
 
@@ -29,7 +36,7 @@ function KioskMain() {
   }
 
   return (
-    <Container style={{ maxWidth: "425px", backgroundColor: "#5df0c6" }}>
+    <Container style={{ maxWidth: "425px", backgroundColor: "#edf0f5" }}>
       <Logo size={40} />
       <Category items={items} selectedCategory={selectedCategory} onChange={handleCategoryChange} />
       <Menu items={items} selectedCategory={selectedCategory} />
