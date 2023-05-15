@@ -8,7 +8,11 @@ function Category({ items, selectedCategory, onChange }) {
       {items.map((category) => (
         <Button
           key={category.id}
-          style={{ backgroundColor: "green", margin: "5px", marginTop: "50px" }}
+          style={{
+            // border: "1px outset black ",
+            margin: "5px",
+            marginTop: "50px",
+          }}
           onClick={() => onChange(category.id)}
         >
           {category.category}
