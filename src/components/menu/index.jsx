@@ -5,13 +5,9 @@ import * as S from "./style"
 function Menu({ items, selectedCategory }) {
   const filteredItems = items.filter((category) => category.id === selectedCategory)
 
-  if (!filteredItems || filteredItems.length === 0 || !filteredItems[0].items) {
-    return null
-  }
-
   return (
     <S.MenuWrapper>
-      {filteredItems[0].items.map((item) => (
+      {filteredItems[0]?.items.map((item) => (
         <Product
           key={item.id}
           name={item.name}
