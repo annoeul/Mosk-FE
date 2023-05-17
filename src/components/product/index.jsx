@@ -28,7 +28,6 @@ function Product({ name, price, description, options, items }) {
   const handleAddToCart = () => {
     // 선택된 옵션과 상품 정보를 이용하여 장바구니에 상품을 추가하는 로직을 구현하세요.
     // 장바구니에 상품을 추가하는 함수 또는 API 호출 등을 여기에 작성합니다.
-    console.log("Add to cart:", name, selectedOptions)
   }
 
   return (
@@ -44,11 +43,11 @@ function Product({ name, price, description, options, items }) {
 
       <Modal open={modalOpen} onClose={handleCloseModal}>
         <S.ModalWrapper>
-          <h2>{name}</h2>
-          <p>{description}</p>
+          <h2 style={{ textAlign: "center", fontSize: "20px", padding: "15px" }}>{name}</h2>
+          <p style={{ textAlign: "center" }}>{description}</p>
           {options && options.length > 0 && (
             <>
-              <h3>옵션:</h3>
+              <h1>- 옵션 -</h1>
               {options.map((option) => (
                 <FormControlLabel
                   key={option}
@@ -61,8 +60,10 @@ function Product({ name, price, description, options, items }) {
             </>
           )}
           {!options || (options.length === 0 && <p>사용 가능한 옵션이 없습니다.</p>)}
-          <Button onClick={handleAddToCart}>장바구니</Button>
-          <Button onClick={handleCloseModal}>닫기</Button>
+          <S.ModalButtonWrapper>
+            <Button onClick={handleAddToCart}>장바구니</Button>
+            <Button onClick={handleCloseModal}>닫기</Button>
+          </S.ModalButtonWrapper>
         </S.ModalWrapper>
       </Modal>
     </Container>

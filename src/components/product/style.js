@@ -74,3 +74,7 @@ export const ModalWrapper = styled.div`
     cursor: pointer;
   }
 `
+export const ModalButtonWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
