@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "server": "json-server --watch menu.json --port 8000",
+    "server": "json-server --watch menu.json --port 9090",
     "proxy": "http://2303.team.callon.kr"
   },
   "dependencies": {
