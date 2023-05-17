@@ -1,8 +1,8 @@
 import React from "react"
-import Logo from "../../../components/common/logo"
-import LoginForm from "../../components/login"
+import LoginForm from "../../../components/dash/login"
 import * as S from "./style"
 import { Container } from "react-bootstrap"
+import Logo from "../../../components/common/logo"
 
 function LoginPage() {
   return (

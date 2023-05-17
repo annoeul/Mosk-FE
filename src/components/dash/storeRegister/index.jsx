@@ -1,8 +1,6 @@
 import React from "react"
 import { Box, Button, Container, FormControlLabel, Grid, TextField, Typography } from "@mui/material"
 // import { CheckBox } from "@mui/icons-material"
-import { Link } from "react-router-dom"
-import Grid2 from "@mui/material/Unstable_Grid2/Grid2"
 
 function StoreRegisterForm() {
   return (

@@ -1,7 +1,8 @@
 import React from "react"
-import StoreRegisterForm from "../../components/storeRegister"
-import Logo from "../../../components/common/logo"
+
 import { Container } from "react-bootstrap"
+import Logo from "../../../components/common/logo"
+import StoreRegisterForm from "../../../components/dash/storeRegister"
 
 function StorePage() {
   return (

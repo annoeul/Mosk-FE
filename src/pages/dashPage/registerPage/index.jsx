@@ -1,9 +1,8 @@
 import React from "react"
-import Logo from "../../../components/common/logo"
+import RegisterForm from "../../../components/dash/register/index"
 import * as S from "./style"
 import { Container } from "react-bootstrap"
-import RegisterForm from "../../components/register"
-import { Outlet } from "react-router-dom"
+import Logo from "../../../components/common/logo"
 
 function RegisterPage() {
   return (
