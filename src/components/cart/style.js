@@ -20,3 +20,8 @@ export const CartCount = styled.span`
   line-height: 20px;
   margin-right: 20px;
 `
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`

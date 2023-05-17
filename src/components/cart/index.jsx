@@ -46,13 +46,13 @@ function Cart({ cartItems }) {
           justifyContent: "center",
         }}
       >
-        <Slide direction="up" in={modalOpen} mountOnEnter unmountOnExit>
+        <Slide direction="down" in={modalOpen} mountOnEnter unmountOnExit>
           <div
             style={{
               backgroundColor: "white",
               padding: "20px",
               borderRadius: "10px",
-              maxHeight: "70vh",
+              // maxHeight: "70vh",
               width: "100%",
               borderTop: "1px solid",
               borderBottom: "1px solid",
@@ -61,7 +61,7 @@ function Cart({ cartItems }) {
               flexDirection: "column",
             }}
           >
-            <h2>장바구니</h2>
+            <h2 style={{ paddingBottom: "10px", fontSize: "20px", textAlign: "center" }}>장바구니</h2>
             {cartItems.length > 0 ? (
               <div style={{ flex: 1, overflowY: "auto" }}>
                 {Object.entries(itemCounts).map(([itemKey, itemCount]) => {
@@ -72,18 +72,27 @@ function Cart({ cartItems }) {
                   return (
                     <div key={itemKey} style={{ marginBottom: "10px" }}>
                       <h3>{item.name}</h3>
-                      {itemOptions.length > 0 && <p>옵션: {itemOptions.join(", ")}</p>}
-                      <p>가격: {item.price}원</p>
-                      <p>개수: {itemCount}</p>
+                      {itemOptions.length > 0 && <p>-옵션: {itemOptions.join(", ")}</p>}
+                      <p>-가격: {item.price}원</p>
+                      <p>-개수: {itemCount}</p>
                     </div>
                   )
                 })}
-                <p>총 가격: {totalPrice}원</p>
+                <p style={{ textAlign: "center", paddingTop: "10px" }}>총 가격: {totalPrice}원</p>
               </div>
             ) : (
               <p>장바구니가 비어 있습니다.</p>
             )}
-            <Button onClick={handleCloseModal}>닫기</Button>
+            <S.ButtonWrapper>
+              <Button onClick={handleCloseModal}>닫기</Button>
+              <Button
+                onClick={() => {
+                  alert("aa")
+                }}
+              >
+                결제하기
+              </Button>
+            </S.ButtonWrapper>
           </div>
         </Slide>
       </Modal>
