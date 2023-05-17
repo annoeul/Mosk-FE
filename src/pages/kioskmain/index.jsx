@@ -6,6 +6,7 @@ import Logo from "../../components/common/logo"
 import Category from "../../components/category"
 import Menu from "../../components/menu"
 import Bottom from "../../components/bottom"
+import { Link } from "react-router-dom"
 
 function KioskMain() {
   const [items, setItems] = useState([])
@@ -13,8 +14,13 @@ function KioskMain() {
 
   const getData = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/menu")
-      setItems(response.data)
+      const response = await fetch("http://localhost:9090/menu")
+      if (response.ok) {
+        const data = await response.json()
+        setItems(data)
+      } else {
+        console.log("Error: ", response.status)
+      }
     } catch (error) {
       console.log(error)
     }
@@ -41,6 +47,7 @@ function KioskMain() {
       <Category items={items} selectedCategory={selectedCategory} onChange={handleCategoryChange} />
       <Menu items={items} selectedCategory={selectedCategory} />
       <Bottom />
+      <Link to="/login">로그인창</Link>
     </Container>
   )
 }
