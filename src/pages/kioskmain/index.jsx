@@ -11,6 +11,7 @@ import Cart from "../../components/cart"
 function KioskMain() {
   const [items, setItems] = useState([])
   const [selectedCategory, setSelectedCategory] = useState("")
+  const [cartItems, setCartItems] = useState([]) // 장바구니 아이템 상태 추가
 
   const getData = async () => {
     try {
@@ -39,6 +40,7 @@ function KioskMain() {
 
   const addToCart = (item) => {
     console.log("Adding item to cart:", item)
+    setCartItems([...cartItems, item]) // 장바구니 아이템 추가
   }
 
   const handleCategoryChange = (categoryId) => {
@@ -50,7 +52,7 @@ function KioskMain() {
       <Logo size={40} />
       <Category items={items} selectedCategory={selectedCategory} onChange={handleCategoryChange} />
       <Menu items={items} selectedCategory={selectedCategory} addToCart={addToCart} />
-      <Cart />
+      <Cart cartItems={cartItems} />
       <Link to="/login">로그인창</Link>
     </Container>
   )
