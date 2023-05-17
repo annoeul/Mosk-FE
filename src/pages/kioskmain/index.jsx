@@ -37,6 +37,10 @@ function KioskMain() {
     getData()
   }, [])
 
+  const addToCart = (item) => {
+    console.log("Adding item to cart:", item)
+  }
+
   const handleCategoryChange = (categoryId) => {
     setSelectedCategory(categoryId)
   }
@@ -45,7 +49,7 @@ function KioskMain() {
     <Container style={{ maxWidth: "425px", backgroundColor: "#edf0f5" }}>
       <Logo size={40} />
       <Category items={items} selectedCategory={selectedCategory} onChange={handleCategoryChange} />
-      <Menu items={items} selectedCategory={selectedCategory} />
+      <Menu items={items} selectedCategory={selectedCategory} addToCart={addToCart} />
       <Cart />
       <Link to="/login">로그인창</Link>
     </Container>

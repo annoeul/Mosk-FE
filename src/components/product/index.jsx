@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Container, Button, Modal, Checkbox, FormControlLabel } from "@material-ui/core"
 import * as S from "./style"
 
-function Product({ name, price, description, options, items }) {
+function Product({ name, price, description, options, addToCart }) {
   const [modalOpen, setModalOpen] = useState(false)
   const [selectedOptions, setSelectedOptions] = useState([])
 
@@ -26,8 +26,14 @@ function Product({ name, price, description, options, items }) {
   }
 
   const handleAddToCart = () => {
-    // 선택된 옵션과 상품 정보를 이용하여 장바구니에 상품을 추가하는 로직을 구현하세요.
-    // 장바구니에 상품을 추가하는 함수 또는 API 호출 등을 여기에 작성합니다.
+    const item = {
+      name: name,
+      price: price,
+      description: description,
+      options: selectedOptions,
+    }
+
+    addToCart(item)
   }
 
   return (

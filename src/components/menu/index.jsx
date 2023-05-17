@@ -1,8 +1,9 @@
+// Menu.jsx
 import React from "react"
 import Product from "../product"
 import * as S from "./style"
 
-function Menu({ items, selectedCategory }) {
+function Menu({ items, selectedCategory, addToCart }) {
   const filteredItems = items.filter((category) => category.id === selectedCategory)
 
   return (
@@ -14,7 +15,7 @@ function Menu({ items, selectedCategory }) {
           price={item.price}
           description={item.description}
           options={item.options}
-          items={items} // Pass the entire items array for options lookup
+          addToCart={addToCart} // Pass the addToCart function
         />
       ))}
     </S.MenuWrapper>
