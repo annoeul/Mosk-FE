@@ -5,8 +5,8 @@ import { Container } from "@material-ui/core"
 import Logo from "../../components/common/logo"
 import Category from "../../components/category"
 import Menu from "../../components/menu"
-import Bottom from "../../components/bottom"
 import { Link } from "react-router-dom"
+import Cart from "../../components/cart"
 
 function KioskMain() {
   const [items, setItems] = useState([])
@@ -46,7 +46,7 @@ function KioskMain() {
       <Logo size={40} />
       <Category items={items} selectedCategory={selectedCategory} onChange={handleCategoryChange} />
       <Menu items={items} selectedCategory={selectedCategory} />
-      <Bottom />
+      <Cart />
       <Link to="/login">로그인창</Link>
     </Container>
   )

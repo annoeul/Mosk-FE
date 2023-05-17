@@ -1,6 +1,6 @@
 import { styled } from "styled-components"
 
-export const BottomWrapper = styled.div`
+export const CartWrapper = styled.div`
   position: relative;
   text-align: right;
   /* padding-bottom: 130px; */
