@@ -7,7 +7,7 @@ function Menu({ items, selectedCategory, addToCart }) {
   const filteredItems = items.filter((category) => category.id === selectedCategory)
 
   return (
-    <S.MenuWrapper>
+    <S.MenuWrapper style={{ height: "60vh", overflowY: "auto" }}>
       {filteredItems[0]?.items.map((item) => (
         <Product
           key={item.id}
