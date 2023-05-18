@@ -3,8 +3,10 @@ import React, { useState } from "react"
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined"
 import { Modal, Button, Slide } from "@material-ui/core"
 import * as S from "./style"
+import { useNavigate } from "react-router-dom"
 
 function Cart({ cartItems }) {
+  const pay = useNavigate()
   const [modalOpen, setModalOpen] = useState(false)
 
   const handleCartClick = () => {
@@ -87,7 +89,7 @@ function Cart({ cartItems }) {
               <Button onClick={handleCloseModal}>닫기</Button>
               <Button
                 onClick={() => {
-                  alert("aa")
+                  pay("/pay")
                 }}
               >
                 결제하기
