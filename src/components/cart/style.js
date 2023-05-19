@@ -1,10 +1,11 @@
 import { styled } from "styled-components"
 
 export const CartWrapper = styled.div`
-  position: relative;
+  /* position: relative; */
   text-align: right;
+  padding-top: 15px;
   /* padding-bottom: 130px; */
-  bottom: 60px;
+  /* bottom: 60px; */
   /* right: 10px; */
   /* border: 1px solid black; */
 `
@@ -25,3 +26,23 @@ export const ButtonWrapper = styled.div`
   display: flex;
   justify-content: space-between;
 `
+
+export const ProductImg = styled.img`
+  width: ${({ size }) => size}px;
+  margin: 0 20px;
+  /* display: flex; */
+  /* align-self: flex-end; */
+`
+export const TotalPrice = styled.div`
+  text-align: center;
+  align-items: center;
+  margin: 0 auto;
+  /* padding-top: 10px; */
+  font-size: 22px;
+  /* background-color: #ddd; */
+  padding: 10px;
+`
+
+// export const CartTitle = styled.div`
+
+// `

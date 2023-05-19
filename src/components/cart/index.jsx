@@ -17,7 +17,6 @@ function Cart({ cartItems }) {
     setModalOpen(false)
   }
 
-  // 아이템 개수 계산
   const itemCounts = cartItems.reduce((counts, item) => {
     const itemKey = `${item.name}-${item.options.join("-")}`
     if (counts[itemKey]) {
@@ -28,7 +27,6 @@ function Cart({ cartItems }) {
     return counts
   }, {})
 
-  // 총 가격 계산
   const totalPrice = cartItems.reduce((total, item) => total + item.price, 0)
 
   return (
@@ -44,26 +42,26 @@ function Cart({ cartItems }) {
         closeAfterTransition
         style={{
           display: "flex",
-          alignItems: "flex-start", // Align content to the top
+          alignItems: "flex-end",
           justifyContent: "center",
         }}
       >
-        <Slide direction="down" in={modalOpen} mountOnEnter unmountOnExit>
+        <Slide direction="up" in={modalOpen} mountOnEnter unmountOnExit>
           <div
             style={{
               backgroundColor: "white",
-              padding: "20px",
+              // padding: "20px",
               borderRadius: "10px",
-              // maxHeight: "70vh",
+              maxHeight: "70vh",
               width: "100%",
               borderTop: "1px solid",
               borderBottom: "1px solid",
-              borderColor: S.CartWrapper.borderColor,
+              borderColor: "#000", // Change the border color to your desired color
               display: "flex",
               flexDirection: "column",
             }}
           >
-            <h2 style={{ paddingBottom: "10px", fontSize: "20px", textAlign: "center" }}>장바구니</h2>
+            <h2 style={{ padding: "30px", fontSize: "20px", textAlign: "center" }}>장바구니</h2>
             {cartItems.length > 0 ? (
               <div style={{ flex: 1, overflowY: "auto" }}>
                 {Object.entries(itemCounts).map(([itemKey, itemCount]) => {
@@ -72,27 +70,43 @@ function Cart({ cartItems }) {
                     (item) => item.name === itemName && item.options.join("-") === itemOptions.join("-"),
                   )
                   return (
-                    <div key={itemKey} style={{ marginBottom: "10px" }}>
-                      <h3>{item.name}</h3>
-                      {itemOptions.length > 0 && <p>-옵션: {itemOptions.join(", ")}</p>}
-                      <p>-가격: {item.price}원</p>
-                      <p>-개수: {itemCount}</p>
+                    <div
+                      key={itemKey}
+                      style={{
+                        // marginBottom: "10px",
+                        display: "flex",
+                        justifyContent: "space-between",
+                        borderBottom: "1px dotted black",
+                        padding: "10px 0",
+                      }}
+                    >
+                      <S.ProductImg src="/img/logo.png" size={30} />
+                      {/* 나중에 이미지 넣을 자리 */}
+                      <div style={{ textAlign: "end", margin: "0 20px" }}>
+                        <h3 style={{ fontWeight: "bold" }}>{item.name}</h3>
+                        {itemOptions.length > 0 && <p>-옵션: {itemOptions.join(", ")}</p>}
+                        <p>-가격: {item.price}원</p>
+                        <p>-개수: {itemCount}</p>
+                      </div>
                     </div>
                   )
                 })}
-                <p style={{ textAlign: "center", paddingTop: "10px" }}>총 가격: {totalPrice}원</p>
               </div>
             ) : (
               <p>장바구니가 비어 있습니다.</p>
             )}
             <S.ButtonWrapper>
-              <Button onClick={handleCloseModal}>닫기</Button>
+              <Button style={{ backgroundColor: "#e8355f", color: "white" }} onClick={handleCloseModal}>
+                닫기
+              </Button>
+              <S.TotalPrice>총 가격: {totalPrice}원</S.TotalPrice>
               <Button
+                style={{ backgroundColor: "#7f56c4", color: "white" }}
                 onClick={() => {
                   pay("/pay")
                 }}
               >
-                결제하기
+                결제
               </Button>
             </S.ButtonWrapper>
           </div>
