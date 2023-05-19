@@ -39,18 +39,18 @@ function Product({ name, price, description, options, addToCart }) {
   return (
     <Container>
       <S.ProductWrapper onClick={handleOpenModal}>
-        <S.ProductName>
-          {name}
-          <br />
-          {price}원
-        </S.ProductName>
         <S.ProductImg src="/img/logo.png" size={30} />
+        <S.ProductName>
+          <p style={{ fontWeight: "bolder", fontSize: "1.3rem" }}>{name}</p>
+          <br />
+          <p>{price}원</p>
+        </S.ProductName>
       </S.ProductWrapper>
 
       <Modal open={modalOpen} onClose={handleCloseModal}>
         <S.ModalWrapper>
-          <h2 style={{ textAlign: "center", fontSize: "20px", padding: "15px" }}>{name}</h2>
-          <p style={{ textAlign: "center" }}>{description}</p>
+          <h2 style={{ fontSize: "1.5rem", padding: "15px 0" }}>{name}</h2>
+          <p>{description}</p>
           {options && options.length > 0 && (
             <>
               <h1>- 옵션 -</h1>
