@@ -9,9 +9,11 @@ function Category({ items, selectedCategory, onChange }) {
         <Button
           key={category.id}
           style={{
+            fontSize: "15px",
+            fontWeight: "bold",
             // border: "1px outset black ",
             margin: "5px",
-            marginTop: "50px",
+            // marginTop: "50px",
           }}
           onClick={() => onChange(category.id)}
         >
