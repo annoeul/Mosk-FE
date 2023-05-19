@@ -22,6 +22,13 @@ export const CartCount = styled.span`
   margin-right: 20px;
 `
 
+export const CartModalTitle = styled.h1`
+  padding: 20px;
+  text-align: center;
+  font-weight: 900;
+  background-color: #ccc;
+`
+
 export const ButtonWrapper = styled.div`
   display: flex;
   justify-content: space-between;
@@ -40,7 +47,10 @@ export const TotalPrice = styled.div`
   /* padding-top: 10px; */
   font-size: 22px;
   /* background-color: #ddd; */
-  padding: 10px;
+  padding: 15px;
+  position: sticky;
+  bottom: 0;
+  background-color: #e8e9eb;
 `
 
 // export const CartTitle = styled.div`

@@ -61,7 +61,7 @@ function Cart({ cartItems }) {
               flexDirection: "column",
             }}
           >
-            <h2 style={{ padding: "30px", fontSize: "20px", textAlign: "center" }}>장바구니</h2>
+            <S.CartModalTitle>장바구니</S.CartModalTitle>
             {cartItems.length > 0 ? (
               <div style={{ flex: 1, overflowY: "auto" }}>
                 {Object.entries(itemCounts).map(([itemKey, itemCount]) => {
@@ -91,22 +91,27 @@ function Cart({ cartItems }) {
                     </div>
                   )
                 })}
+                <S.TotalPrice>총 가격: {totalPrice}원</S.TotalPrice>
               </div>
             ) : (
               <p>장바구니가 비어 있습니다.</p>
             )}
             <S.ButtonWrapper>
-              <Button style={{ backgroundColor: "#e8355f", color: "white" }} onClick={handleCloseModal}>
+              <Button
+                style={{ width: "50%", backgroundColor: "#f089d1" }}
+                variant="outlined"
+                onClick={handleCloseModal}
+              >
                 닫기
               </Button>
-              <S.TotalPrice>총 가격: {totalPrice}원</S.TotalPrice>
               <Button
-                style={{ backgroundColor: "#7f56c4", color: "white" }}
+                style={{ width: "50%", backgroundColor: "#74bee8" }}
+                variant="outlined"
                 onClick={() => {
                   pay("/pay")
                 }}
               >
-                결제
+                결제하기
               </Button>
             </S.ButtonWrapper>
           </div>
