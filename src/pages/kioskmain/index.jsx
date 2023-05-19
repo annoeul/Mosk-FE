@@ -7,6 +7,7 @@ import Category from "../../components/category"
 import Menu from "../../components/menu"
 import { Link } from "react-router-dom"
 import Cart from "../../components/cart"
+import "reset-css"
 
 function KioskMain() {
   const [items, setItems] = useState([])
@@ -48,12 +49,15 @@ function KioskMain() {
   }
 
   return (
-    <Container style={{ maxWidth: "425px", backgroundColor: "#edf0f5" }}>
-      <Logo size={40} />
-      <Category items={items} selectedCategory={selectedCategory} onChange={handleCategoryChange} />
+    <Container style={{ height: "100vh", backgroundColor: "#ddd" }}>
+      {/* <Logo size={40} /> */}
+      <div>
+        <Cart cartItems={cartItems} />
+        <Category items={items} selectedCategory={selectedCategory} onChange={handleCategoryChange} />
+      </div>
       <Menu items={items} selectedCategory={selectedCategory} addToCart={addToCart} />
-      <Cart cartItems={cartItems} />
       <Link to="/login">로그인창</Link>
+      <p style={{ textAlign: "center", paddingTop: "50px" }}>By Dajeon PolyTechic Team3</p>
     </Container>
   )
 }
