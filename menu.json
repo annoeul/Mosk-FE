@@ -1,7 +1,7 @@
 {
   "menu": [
     {
-      "id": "coffee",
+      "id": 1,
       "category": "커피",
       "items": [
         {
@@ -9,209 +9,645 @@
           "name": "아메리카노",
           "description": "에스프레소와 물이 가장 기본적인 커피",
           "price": 2500,
-          "options": ["샷 추가", "시럽 추가"]
+          "optionGroup": [
+            {
+              "name": "샷추가",
+              "options": [
+                {
+                  "id": 1,
+                  "name": "1샷",
+                  "price": 500
+                },
+                {
+                  "id": 2,
+                  "name": "2샷",
+                  "price": 1000
+                },
+                {
+                  "id": 3,
+                  "name": "3샷",
+                  "price": 1500
+                }
+              ]
+            },
+            {
+              "name": "얼음",
+              "options": [
+                {
+                  "id": 4,
+                  "name": "각얼음",
+                  "price": 500
+                },
+                {
+                  "id": 5,
+                  "name": "간얼음",
+                  "price": 500
+                }
+              ]
+            }
+          ]
         },
         {
           "id": 2,
           "name": "카페 라떼",
-          "description": "에스프레소와 우유가 섞인 커피",
+          "description": "에스프레소와 스팀밀크로 만든 커피 음료",
           "price": 3500,
-          "options": ["샷 추가", "시럽 추가"]
+          "optionGroup": [
+            {
+              "name": "샷추가",
+              "options": [
+                {
+                  "id": 1,
+                  "name": "1샷",
+                  "price": 500
+                },
+                {
+                  "id": 2,
+                  "name": "2샷",
+                  "price": 1000
+                },
+                {
+                  "id": 3,
+                  "name": "3샷",
+                  "price": 1500
+                }
+              ]
+            },
+            {
+              "name": "시럽 추가",
+              "options": [
+                {
+                  "id": 6,
+                  "name": "바닐라 시럽",
+                  "price": 300
+                },
+                {
+                  "id": 7,
+                  "name": "캐러멜 시럽",
+                  "price": 300
+                },
+                {
+                  "id": 8,
+                  "name": "헤이즐넛 시럽",
+                  "price": 300
+                }
+              ]
+            }
+          ]
         },
         {
           "id": 3,
-          "name": "카푸치노",
-          "description": "에스프레소와 우유 그리고 우유 거품이 얹어진 커피",
-          "price": 3500,
-          "options": ["샷 추가", "시럽 추가"]
+          "name": "카페 모카",
+          "description": "에스프레소, 초콜릿, 스팀밀크로 만든 커피 음료",
+          "price": 4000,
+          "optionGroup": [
+            {
+              "name": "샷추가",
+              "options": [
+                {
+                  "id": 1,
+                  "name": "1샷",
+                  "price": 500
+                },
+                {
+                  "id": 2,
+                  "name": "2샷",
+                  "price": 1000
+                },
+                {
+                  "id": 3,
+                  "name": "3샷",
+                  "price": 1500
+                }
+              ]
+            },
+            {
+              "name": "시럽 추가",
+              "options": [
+                {
+                  "id": 6,
+                  "name": "바닐라 시럽",
+                  "price": 300
+                },
+                {
+                  "id": 7,
+                  "name": "캐러멜 시럽",
+                  "price": 300
+                },
+                {
+                  "id": 8,
+                  "name": "헤이즐넛 시럽",
+                  "price": 300
+                }
+              ]
+            }
+          ]
         },
         {
           "id": 4,
-          "name": "에스프레소 마키아또",
-          "description": "에스프레소 위에 거품을 올린 것",
-          "price": 2500,
-          "options": ["시럽 추가"]
+          "name": "카푸치노",
+          "description": "에스프레소와 스팀밀크, 거품으로 만든 커피 음료",
+          "price": 3500,
+          "optionGroup": [
+            {
+              "name": "샷추가",
+              "options": [
+                {
+                  "id": 1,
+                  "name": "1샷",
+                  "price": 500
+                },
+                {
+                  "id": 2,
+                  "name": "2샷",
+                  "price": 1000
+                },
+                {
+                  "id": 3,
+                  "name": "3샷",
+                  "price": 1500
+                }
+              ]
+            },
+            {
+              "name": "시럽 추가",
+              "options": [
+                {
+                  "id": 6,
+                  "name": "바닐라 시럽",
+                  "price": 300
+                },
+                {
+                  "id": 7,
+                  "name": "캐러멜 시럽",
+                  "price": 300
+                },
+                {
+                  "id": 8,
+                  "name": "헤이즐넛 시럽",
+                  "price": 300
+                }
+              ]
+            }
+          ]
         },
         {
           "id": 5,
-          "name": "아메리카노",
-          "description": "에스프레소와 물이 가장 기본적인 커피",
+          "name": "카페 아메리카노",
+          "description": "에스프레소와 물로 만든 커피 음료",
           "price": 2500,
-          "options": ["샷 추가", "시럽 추가"]
-        },
-        {
-          "id": 6,
-          "name": "카페 라떼",
-          "description": "에스프레소와 우유가 섞인 커피",
-          "price": 3500,
-          "options": ["샷 추가", "시럽 추가"]
-        },
-        {
-          "id": 7,
-          "name": "카푸치노",
-          "description": "에스프레소와 우유 그리고 우유 거품이 얹어진 커피",
-          "price": 3500,
-          "options": ["샷 추가", "시럽 추가"]
-        },
-        {
-          "id": 8,
-          "name": "에스프레소 마키아또",
-          "description": "에스프레소 위에 거품을 올린 것",
-          "price": 2500,
-          "options": ["시럽 추가"]
-        },
-        {
-          "id": 9,
-          "name": "아메리카노",
-          "description": "에스프레소와 물이 가장 기본적인 커피",
-          "price": 2500,
-          "options": ["샷 추가", "시럽 추가"]
-        },
-        {
-          "id": 10,
-          "name": "카페 라떼",
-          "description": "에스프레소와 우유가 섞인 커피",
-          "price": 3500,
-          "options": ["샷 추가", "시럽 추가"]
-        },
-        {
-          "id": 11,
-          "name": "카푸치노",
-          "description": "에스프레소와 우유 그리고 우유 거품이 얹어진 커피",
-          "price": 3500,
-          "options": ["샷 추가", "시럽 추가"]
-        },
-        {
-          "id": 12,
-          "name": "에스프레소 마키아또",
-          "description": "에스프레소 위에 거품을 올린 것",
-          "price": 2500,
-          "options": ["시럽 추가"]
+          "optionGroup": [
+            {
+              "name": "샷추가",
+              "options": [
+                {
+                  "id": 1,
+                  "name": "1샷",
+                  "price": 500
+                },
+                {
+                  "id": 2,
+                  "name": "2샷",
+                  "price": 1000
+                },
+                {
+                  "id": 3,
+                  "name": "3샷",
+                  "price": 1500
+                }
+              ]
+            },
+            {
+              "name": "얼음",
+              "options": [
+                {
+                  "id": 4,
+                  "name": "각얼음",
+                  "price": 500
+                },
+                {
+                  "id": 5,
+                  "name": "간얼음",
+                  "price": 500
+                }
+              ]
+            }
+          ]
         }
       ]
     },
     {
-      "id": "beverage",
+      "id": 2,
       "category": "음료",
       "items": [
         {
-          "id": 5,
-          "name": "레몬에이드",
-          "description": "상큼한 레몬과 달콤한 설탕이 들어간 음료",
-          "price": 4000,
-          "options": ["얼음 추가"]
-        },
-        {
           "id": 6,
-          "name": "자몽에이드",
-          "description": "상큼한 자몽과 달콤한 설탕이 들어간 음료",
-          "price": 4500,
-          "options": ["얼음 추가"]
+          "name": "그린 티 라떼",
+          "description": "그린 티 파우더와 스팀밀크로 만든 음료",
+          "price": 4000,
+          "optionGroup": [
+            {
+              "name": "시럽 추가",
+              "options": [
+                {
+                  "id": 6,
+                  "name": "바닐라 시럽",
+                  "price": 300
+                },
+                {
+                  "id": 7,
+                  "name": "캐러멜 시럽",
+                  "price": 300
+                },
+                {
+                  "id": 8,
+                  "name": "헤이즐넛 시럽",
+                  "price": 300
+                }
+              ]
+            },
+            {
+              "name": "얼음",
+              "options": [
+                {
+                  "id": 4,
+                  "name": "각얼음",
+                  "price": 500
+                },
+                {
+                  "id": 5,
+                  "name": "간얼음",
+                  "price": 500
+                }
+              ]
+            }
+          ]
         },
         {
           "id": 7,
-          "name": "청귤에이드",
-          "description": "청귤과 달콤한 설탕이 들어간 음료",
+          "name": "자몽 허니 블랙 티",
+          "description": "자몽, 허니, 블랙 티로 만든 음료",
           "price": 4500,
-          "options": ["얼음 추가"]
+          "optionGroup": [
+            {
+              "name": "시럽 추가",
+              "options": [
+                {
+                  "id": 6,
+                  "name": "바닐라 시럽",
+                  "price": 300
+                },
+                {
+                  "id": 7,
+                  "name": "캐러멜 시럽",
+                  "price": 300
+                },
+                {
+                  "id": 8,
+                  "name": "헤이즐넛 시럽",
+                  "price": 300
+                }
+              ]
+            },
+            {
+              "name": "얼음",
+              "options": [
+                {
+                  "id": 4,
+                  "name": "각얼음",
+                  "price": 500
+                },
+                {
+                  "id": 5,
+                  "name": "간얼음",
+                  "price": 500
+                }
+              ]
+            }
+          ]
         },
         {
           "id": 8,
-          "name": "생수",
-          "description": "100% 순수한 물",
-          "price": 1500,
-          "options": []
-        }
-      ]
-    },
-    {
-      "id": "tea",
-      "category": "차",
-      "items": [
+          "name": "바닐라 크림 콜드 브루",
+          "description": "바닐라 시럽과 크림이 들어간 콜드 브루 음료",
+          "price": 4500,
+          "optionGroup": [
+            {
+              "name": "얼음",
+              "options": [
+                {
+                  "id": 4,
+                  "name": "각얼음",
+                  "price": 500
+                },
+                {
+                  "id": 5,
+                  "name": "간얼음",
+                  "price": 500
+                }
+              ]
+            }
+          ]
+        },
         {
           "id": 9,
-          "name": "얼그레이",
-          "description": "블랙 티에 베르가못 향을 더한 차",
-          "price": 3000,
-          "options": ["얼음 추가", "레몬 추가"]
+          "name": "카라멜 마끼아또",
+          "description": "에스프레소, 스팀밀크, 바닐라 시럽, 카라멜 시럽이 들어간 커피 음료",
+          "price": 4500,
+          "optionGroup": [
+            {
+              "name": "샷추가",
+              "options": [
+                {
+                  "id": 1,
+                  "name": "1샷",
+                  "price": 500
+                },
+                {
+                  "id": 2,
+                  "name": "2샷",
+                  "price": 1000
+                },
+                {
+                  "id": 3,
+                  "name": "3샷",
+                  "price": 1500
+                }
+              ]
+            },
+            {
+              "name": "얼음",
+              "options": [
+                {
+                  "id": 4,
+                  "name": "각얼음",
+                  "price": 500
+                },
+                {
+                  "id": 5,
+                  "name": "간얼음",
+                  "price": 500
+                }
+              ]
+            }
+          ]
         },
         {
           "id": 10,
-          "name": "그린티",
-          "description": "녹차의 대표적인 차",
-          "price": 3000,
-          "options": ["얼음 추가", "레몬 추가", "허니 추가"]
-        },
-        {
-          "id": 11,
-          "name": "루이보스",
-          "description": "남아프리카의 식물로 만든 차",
-          "price": 3500,
-          "options": ["얼음 추가"]
-        }
-      ]
-    },
-    {
-      "id": "smoothie",
-      "category": "스무디",
-      "items": [
-        {
-          "id": 12,
-          "name": "딸기 스무디",
-          "description": "신선한 딸기로 만든 과일 스무디",
+          "name": "망고 패션 후르츠 블렌디드",
+          "description": "망고, 패션 후르츠 시럽과 우유가 들어간 블렌디드 음료",
           "price": 5000,
-          "options": ["얼음 추가", "허니 추가"]
-        },
-        {
-          "id": 13,
-          "name": "망고 스무디",
-          "description": "달콤한 망고로 만든 과일 스무디",
-          "price": 5500,
-          "options": ["얼음 추가", "허니 추가"]
-        },
-        {
-          "id": 14,
-          "name": "블루베리 스무디",
-          "description": "건강한 블루베리로 만든 과일 스무디",
-          "price": 5500,
-          "options": ["얼음 추가", "허니 추가"]
-        },
-        {
-          "id": 15,
-          "name": "플레인 요거트 스무디",
-          "description": "담백한 플레인 요거트로 만든 스무디",
-          "price": 4500,
-          "options": ["얼음 추가"]
+          "optionGroup": [
+            {
+              "name": "휘핑 크림",
+              "options": [
+                {
+                  "id": 9,
+                  "name": "기본",
+                  "price": 0
+                },
+                {
+                  "id": 10,
+                  "name": "추가",
+                  "price": 500
+                }
+              ]
+            },
+            {
+              "name": "얼음",
+              "options": [
+                {
+                  "id": 4,
+                  "name": "각얼음",
+                  "price": 500
+                },
+                {
+                  "id": 5,
+                  "name": "간얼음",
+                  "price": 500
+                }
+              ]
+            }
+          ]
         }
       ]
     },
     {
-      "id": "dessert",
+      "id": 3,
       "category": "디저트",
       "items": [
         {
-          "id": 16,
+          "id": 11,
           "name": "치즈케이크",
-          "description": "부드럽고 진한 치즈로 만든 케이크",
-          "price": 6000
+          "description": "부드러운 치즈와 달콤한 베리 소스가 들어간 디저트",
+          "price": 4500,
+          "optionGroup": [
+            {
+              "name": "휘핑 크림",
+              "options": [
+                {
+                  "id": 9,
+                  "name": "기본",
+                  "price": 0
+                },
+                {
+                  "id": 10,
+                  "name": "추가",
+                  "price": 500
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 12,
+          "name": "초콜릿 케이크",
+          "description": "진한 초콜릿과 부드러운 생크림이 들어간 디저트",
+          "price": 5000,
+          "optionGroup": [
+            {
+              "name": "휘핑 크림",
+              "options": [
+                {
+                  "id": 9,
+                  "name": "기본",
+                  "price": 0
+                },
+                {
+                  "id": 10,
+                  "name": "추가",
+                  "price": 500
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 13,
+          "name": "레드벨벳 케이크",
+          "description": "달콤한 레드벨벳 케이크와 크림치즈가 들어간 디저트",
+          "price": 5000,
+          "optionGroup": [
+            {
+              "name": "휘핑 크림",
+              "options": [
+                {
+                  "id": 9,
+                  "name": "기본",
+                  "price": 0
+                },
+                {
+                  "id": 10,
+                  "name": "추가",
+                  "price": 500
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 14,
+          "name": "치즈돈까스",
+          "description": "치즈로 푹신하게 싸서 구워낸 돈까스",
+          "price": 6000,
+          "optionGroup": [
+            {
+              "name": "소스",
+              "options": [
+                {
+                  "id": 11,
+                  "name": "데미그라스 소스",
+                  "price": 500
+                },
+                {
+                  "id": 12,
+                  "name": "스파이시 소스",
+                  "price": 500
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 15,
+          "name": "초코볼",
+          "description": "초콜릿으로 둘러싼 소프트 아이스크림",
+          "price": 3000,
+          "optionGroup": [
+            {
+              "name": "토핑",
+              "options": [
+                {
+                  "id": 13,
+                  "name": "아몬드",
+                  "price": 500
+                },
+                {
+                  "id": 14,
+                  "name": "베리믹스",
+                  "price": 500
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "category": "베이커리",
+      "items": [
+        {
+          "id": 16,
+          "name": "블루베리 머핀",
+          "description": "상큼한 블루베리가 들어간 머핀",
+          "price": 2500,
+          "optionGroup": []
         },
         {
           "id": 17,
-          "name": "초콜릿 케이크",
-          "description": "풍부한 초콜릿으로 만든 케이크",
-          "price": 5500
+          "name": "초콜릿 크로와상",
+          "description": "진한 초콜릿으로 가득한 크로와상",
+          "price": 3000,
+          "optionGroup": []
         },
         {
           "id": 18,
-          "name": "블루베리 머핀",
-          "description": "상큼한 블루베리가 들어간 머핀",
-          "price": 3000
+          "name": "카스텔라",
+          "description": "달콤한 일본식 스폰지 케이크",
+          "price": 3500,
+          "optionGroup": []
         },
         {
           "id": 19,
-          "name": "카라멜 팝콘",
-          "description": "달콤한 카라멜로 만든 팝콘",
-          "price": 2500
+          "name": "베이글",
+          "description": "부드러운 베이글에 다양한 토핑을 선택하여 즐기세요",
+          "price": 3000,
+          "optionGroup": [
+            {
+              "name": "토핑",
+              "options": [
+                {
+                  "id": 15,
+                  "name": "크림치즈",
+                  "price": 500
+                },
+                {
+                  "id": 16,
+                  "name": "허니오트",
+                  "price": 500
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 20,
+          "name": "크루아상",
+          "description": "부드러운 크루아상에 아몬드 토핑을 곁들인 디저트",
+          "price": 3500,
+          "optionGroup": []
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "category": "기타",
+      "items": [
+        {
+          "id": 21,
+          "name": "감자튀김",
+          "description": "바삭하고 고소한 감자튀김",
+          "price": 2500,
+          "optionGroup": []
+        },
+        {
+          "id": 22,
+          "name": "치킨너겟",
+          "description": "부드러운 치킨너겟",
+          "price": 3000,
+          "optionGroup": []
+        },
+        {
+          "id": 23,
+          "name": "감자웨지",
+          "description": "바삭하고 고소한 감자웨지",
+          "price": 3000,
+          "optionGroup": []
+        },
+        {
+          "id": 24,
+          "name": "치킨윙",
+          "description": "달콤짭쪼름한 치킨윙",
+          "price": 3500,
+          "optionGroup": []
+        },
+        {
+          "id": 25,
+          "name": "치즈볼",
+          "description": "치즈로 가득한 고소한 치즈볼",
+          "price": 4000,
+          "optionGroup": []
         }
       ]
     }
