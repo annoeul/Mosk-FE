@@ -1,8 +1,6 @@
 // KioskMain.jsx
 import React, { useState, useEffect } from "react"
-import axios from "axios"
 import { Container } from "@material-ui/core"
-import Logo from "../../components/common/logo"
 import Category from "../../components/category"
 import Menu from "../../components/menu"
 import { Link } from "react-router-dom"
