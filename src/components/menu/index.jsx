@@ -5,6 +5,7 @@ import * as S from "./style"
 
 function Menu({ items, selectedCategory, addToCart }) {
   const filteredItems = items.filter((category) => category.id === selectedCategory)
+  // console.log(items.item.optionGroup)
 
   return (
     <S.MenuWrapper style={{ height: "70vh", overflowY: "auto" }}>
@@ -14,7 +15,8 @@ function Menu({ items, selectedCategory, addToCart }) {
           name={item.name}
           price={item.price}
           description={item.description}
-          options={item.options}
+          optionGroup={item.optionGroup}
+          img={item.img}
           addToCart={addToCart} // Pass the addToCart function
         />
       ))}

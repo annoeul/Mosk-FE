@@ -2,9 +2,9 @@ import React, { useState } from "react"
 import { Container, Button, Modal, Checkbox, FormControlLabel } from "@material-ui/core"
 import * as S from "./style"
 
-function Product({ name, price, description, options, addToCart }) {
+function Product({ name, price, description, optionGroup, addToCart, img }) {
   const [modalOpen, setModalOpen] = useState(false)
-  const [selectedOptions, setSelectedOptions] = useState([])
+  const [selectedOptions, setSelectedOptions] = useState({})
 
   const handleOpenModal = () => {
     setModalOpen(true)
@@ -12,25 +12,40 @@ function Product({ name, price, description, options, addToCart }) {
 
   const handleCloseModal = () => {
     setModalOpen(false)
-    setSelectedOptions([])
+    setSelectedOptions({})
   }
 
-  const handleOptionChange = (option) => {
-    const isSelected = selectedOptions.includes(option)
+  const handleOptionChange = (groupIndex, optionIndex) => {
+    setSelectedOptions((prevOptions) => {
+      const newOptions = { ...prevOptions }
 
-    if (isSelected) {
-      setSelectedOptions(selectedOptions.filter((selectedOption) => selectedOption !== option))
-    } else {
-      setSelectedOptions([...selectedOptions, option])
-    }
+      if (newOptions[groupIndex] && newOptions[groupIndex] === optionIndex) {
+        delete newOptions[groupIndex]
+      } else {
+        newOptions[groupIndex] = optionIndex
+      }
+
+      return newOptions
+    })
   }
 
   const handleAddToCart = () => {
+    const options = []
+
+    optionGroup.forEach((group, groupIndex) => {
+      const selectedOptionIndex = selectedOptions[groupIndex]
+
+      if (selectedOptionIndex !== undefined) {
+        const selectedOption = group.options[selectedOptionIndex]
+        options.push(selectedOption)
+      }
+    })
+
     const item = {
       name: name,
       price: price,
       description: description,
-      options: selectedOptions,
+      options: options,
     }
 
     addToCart(item)
@@ -39,7 +54,7 @@ function Product({ name, price, description, options, addToCart }) {
   return (
     <Container>
       <S.ProductWrapper onClick={handleOpenModal}>
-        <S.ProductImg src="/img/logo.png" size={30} />
+        <S.ProductImg src={img} alt={name} size={100} />
         <S.ProductName>
           <p style={{ fontWeight: "bolder", fontSize: "1.3rem" }}>{name}</p>
           <br />
@@ -51,21 +66,29 @@ function Product({ name, price, description, options, addToCart }) {
         <S.ModalWrapper>
           <h2 style={{ fontSize: "1.5rem", padding: "15px 0" }}>{name}</h2>
           <p>{description}</p>
-          {options && options.length > 0 && (
+          {optionGroup && optionGroup.length > 0 && (
             <>
               <h1>- 옵션 -</h1>
-              {options.map((option) => (
-                <FormControlLabel
-                  key={option}
-                  control={
-                    <Checkbox checked={selectedOptions.includes(option)} onChange={() => handleOptionChange(option)} />
-                  }
-                  label={option}
-                />
+              {optionGroup.map((options, groupIndex) => (
+                <div key={options.name}>
+                  <h3>{options.name}</h3>
+                  {options.options.map((option, optionIndex) => (
+                    <FormControlLabel
+                      key={option.id}
+                      control={
+                        <Checkbox
+                          checked={selectedOptions[groupIndex] === optionIndex}
+                          onChange={() => handleOptionChange(groupIndex, optionIndex)}
+                        />
+                      }
+                      label={`${option.name} (${option.price}원)`}
+                    />
+                  ))}
+                </div>
               ))}
             </>
           )}
-          {!options || (options.length === 0 && <p>사용 가능한 옵션이 없습니다.</p>)}
+          {(!optionGroup || optionGroup.length === 0) && <p>사용 가능한 옵션이 없습니다.</p>}
           <S.ModalButtonWrapper>
             <Button onClick={handleAddToCart}>장바구니</Button>
             <Button onClick={handleCloseModal}>닫기</Button>

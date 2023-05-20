@@ -14,7 +14,7 @@ export const ProductWrapper = styled.div`
 
 export const ProductImg = styled.img`
   width: ${({ size }) => size}px;
-  display: flex;
+  /* display: flex; */
   /* align-self: flex-end; */
 `
 

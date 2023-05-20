@@ -1,5 +1,6 @@
 import React from "react"
 import { Button } from "@material-ui/core"
+import "reset-css"
 import * as S from "./style"
 
 function Category({ items, selectedCategory, onChange }) {
@@ -12,7 +13,8 @@ function Category({ items, selectedCategory, onChange }) {
             fontSize: "15px",
             fontWeight: "bold",
             // border: "1px outset black ",
-            margin: "5px",
+            // margin: "5px",
+            whiteSpace: "nowrap",
             // marginTop: "50px",
           }}
           onClick={() => onChange(category.id)}
