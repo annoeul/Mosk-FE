@@ -49,7 +49,7 @@ function KioskMain() {
   return (
     <Container style={{ height: "100vh", backgroundColor: "#ddd" }}>
       {/* <Logo size={40} /> */}
-      <div>
+      <div style={{ textAlign: "center" }}>
         <Cart cartItems={cartItems} />
         <Category items={items} selectedCategory={selectedCategory} onChange={handleCategoryChange} />
       </div>
