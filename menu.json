@@ -102,7 +102,6 @@
           "id": 3,
           "name": "카페 모카",
           "description": "에스프레소, 초콜릿, 스팀밀크로 만든 커피 음료",
-          "img": "./img/Mocha.jpeg",
 
           "price": 4000,
           "optionGroup": [
