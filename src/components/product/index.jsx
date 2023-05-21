@@ -1,10 +1,11 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Container, Button, Modal, Checkbox, FormControlLabel } from "@material-ui/core"
 import * as S from "./style"
 
 function Product({ name, price, description, optionGroup, addToCart, img }) {
   const [modalOpen, setModalOpen] = useState(false)
-  const [selectedOptions, setSelectedOptions] = useState({})
+  const [selectedOptions, setSelectedOptions] = useState([])
+  const [totalPrice, setTotalPrice] = useState(price)
 
   const handleOpenModal = () => {
     setModalOpen(true)
@@ -12,40 +13,57 @@ function Product({ name, price, description, optionGroup, addToCart, img }) {
 
   const handleCloseModal = () => {
     setModalOpen(false)
-    setSelectedOptions({})
+    setSelectedOptions([])
+    setTotalPrice(price)
   }
 
   const handleOptionChange = (groupIndex, optionIndex) => {
     setSelectedOptions((prevOptions) => {
-      const newOptions = { ...prevOptions }
+      const newOptions = [...prevOptions]
 
-      if (newOptions[groupIndex] && newOptions[groupIndex] === optionIndex) {
-        delete newOptions[groupIndex]
+      // 이미 선택된 옵션인지 확인
+      const option = optionGroup[groupIndex].options[optionIndex]
+      const optionExists = newOptions.find((opt) => opt.groupIndex === groupIndex && opt.optionIndex === optionIndex)
+
+      // 선택된 옵션이 없으면 추가, 이미 선택된 옵션이면 제거
+      if (!optionExists) {
+        newOptions.push({ groupIndex, optionIndex })
       } else {
-        newOptions[groupIndex] = optionIndex
+        const optionIndexToRemove = newOptions.findIndex(
+          (opt) => opt.groupIndex === groupIndex && opt.optionIndex === optionIndex,
+        )
+        newOptions.splice(optionIndexToRemove, 1)
       }
 
       return newOptions
     })
   }
 
-  const handleAddToCart = () => {
-    const options = []
+  useEffect(() => {
+    let updatedPrice = price
 
-    optionGroup.forEach((group, groupIndex) => {
-      const selectedOptionIndex = selectedOptions[groupIndex]
+    selectedOptions.forEach((option) => {
+      const optionPrice = optionGroup[option.groupIndex].options[option.optionIndex].price
+      updatedPrice += optionPrice
+    })
+
+    setTotalPrice(updatedPrice)
+  }, [selectedOptions])
+
+  const handleAddToCart = () => {
+    const options = optionGroup.map((group, groupIndex) => {
+      const selectedOptionIndex = selectedOptions.find((opt) => opt.groupIndex === groupIndex)?.optionIndex
 
       if (selectedOptionIndex !== undefined) {
-        const selectedOption = group.options[selectedOptionIndex]
-        options.push(selectedOption)
+        return group.options[selectedOptionIndex]
       }
     })
 
     const item = {
       name: name,
-      price: price,
+      price: price, // 가격은 원래 가격으로 유지
       description: description,
-      options: options,
+      options: options.filter(Boolean), // 필터링하여 undefined 제거
     }
 
     addToCart(item)
@@ -58,7 +76,7 @@ function Product({ name, price, description, optionGroup, addToCart, img }) {
         <S.ProductName>
           <p style={{ fontWeight: "bolder", fontSize: "1.3rem" }}>{name}</p>
           <br />
-          <p>{price}원</p>
+          <p>{totalPrice}원</p> {/* 선택한 옵션에 대한 가격 표시 */}
         </S.ProductName>
       </S.ProductWrapper>
 
@@ -68,20 +86,22 @@ function Product({ name, price, description, optionGroup, addToCart, img }) {
           <p>{description}</p>
           {optionGroup && optionGroup.length > 0 && (
             <>
-              <h1>- 옵션 -</h1>
-              {optionGroup.map((options, groupIndex) => (
-                <div key={options.name}>
-                  <h3>{options.name}</h3>
-                  {options.options.map((option, optionIndex) => (
+              <h3>옵션 선택</h3>
+              {optionGroup.map((group, groupIndex) => (
+                <div key={groupIndex}>
+                  <h3>{group.name}</h3>
+                  {group.options.map((option, optionIndex) => (
                     <FormControlLabel
-                      key={option.id}
+                      key={optionIndex}
                       control={
                         <Checkbox
-                          checked={selectedOptions[groupIndex] === optionIndex}
+                          checked={selectedOptions.some(
+                            (opt) => opt.groupIndex === groupIndex && opt.optionIndex === optionIndex,
+                          )}
                           onChange={() => handleOptionChange(groupIndex, optionIndex)}
                         />
                       }
-                      label={`${option.name} (${option.price}원)`}
+                      label={`${option?.name || "미정의"} (${option?.price || 0}원)`}
                     />
                   ))}
                 </div>
@@ -93,6 +113,15 @@ function Product({ name, price, description, optionGroup, addToCart, img }) {
             <Button onClick={handleAddToCart}>장바구니</Button>
             <Button onClick={handleCloseModal}>닫기</Button>
           </S.ModalButtonWrapper>
+          {selectedOptions.length > 0 && (
+            <p>
+              선택한 옵션:{" "}
+              {selectedOptions
+                .map((option) => optionGroup[option.groupIndex]?.options[option.optionIndex]?.name)
+                .join(", ")}
+            </p>
+          )}
+          <p>총 가격: {totalPrice}원</p> {/* 선택한 옵션에 대한 총 가격 표시 */}
         </S.ModalWrapper>
       </Modal>
     </Container>
