@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { Container, Button, Modal, Checkbox, FormControlLabel } from "@material-ui/core"
 import * as S from "./style"
 
-function Product({ name, price, description, optionGroup, addToCart, img }) {
+function Product({ name, price, description, optionGroup, addToCart, img, cartItems, setCartItems }) {
   const [modalOpen, setModalOpen] = useState(false)
   const [selectedOptions, setSelectedOptions] = useState([])
   const [totalPrice, setTotalPrice] = useState(price)
@@ -49,24 +49,37 @@ function Product({ name, price, description, optionGroup, addToCart, img }) {
 
     setTotalPrice(updatedPrice)
   }, [selectedOptions])
-
   const handleAddToCart = () => {
     const options = optionGroup.map((group, groupIndex) => {
       const selectedOptionIndex = selectedOptions.find((opt) => opt.groupIndex === groupIndex)?.optionIndex
 
       if (selectedOptionIndex !== undefined) {
-        return group.options[selectedOptionIndex]
+        const selectedOption = group.options[selectedOptionIndex]
+        const optionWithPrice = { ...selectedOption, price: selectedOption.price }
+        return optionWithPrice
       }
     })
 
-    const item = {
-      name: name,
-      price: price, // 가격은 원래 가격으로 유지
-      description: description,
-      options: options.filter(Boolean), // 필터링하여 undefined 제거
+    const existingCartItem =
+      cartItems && cartItems.find((item) => item.name === name && item.options.length === options.length)
+
+    if (existingCartItem) {
+      existingCartItem.quantity += 1 // 기존 아이템의 수량 증가
+      setCartItems([...cartItems]) // 장바구니 상태 업데이트
+    } else {
+      const item = {
+        name: name,
+        price: totalPrice,
+        description: description,
+        options: options.filter(Boolean),
+        quantity: 1, // 새로운 아이템의 수량 설정
+      }
+
+      setCartItems([...cartItems, item]) // 새로운 아이템 추가
+      console.log("장바구니에 추가된 상품:", item)
     }
 
-    addToCart(item)
+    handleCloseModal() // 모달 닫기
   }
 
   return (

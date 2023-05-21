@@ -3,7 +3,7 @@ import React from "react"
 import Product from "../product"
 import * as S from "./style"
 
-function Menu({ items, selectedCategory, addToCart }) {
+function Menu({ items, selectedCategory, addToCart, cartItems, setCartItems }) {
   const filteredItems = items.filter((category) => category.id === selectedCategory)
   // console.log(items.item.optionGroup)
 
@@ -18,6 +18,8 @@ function Menu({ items, selectedCategory, addToCart }) {
           optionGroup={item.optionGroup}
           img={item.img}
           addToCart={addToCart} // Pass the addToCart function
+          cartItems={cartItems}
+          setCartItems={setCartItems}
         />
       ))}
     </S.MenuWrapper>

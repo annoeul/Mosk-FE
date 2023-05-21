@@ -101,6 +101,7 @@ export const OptionTitle = styled.h1`
   font-size: 20px;
   text-align: center;
   padding-bottom: 10px;
+  padding-top: 10px;
 `
 export const OptionGroup = styled.div`
   border-top: 1px dotted black;
