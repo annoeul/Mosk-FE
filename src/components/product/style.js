@@ -80,3 +80,34 @@ export const ModalButtonWrapper = styled.div`
   display: flex;
   justify-content: space-between;
 `
+
+export const Total = styled.div`
+  border-top: 1px dotted black;
+  border-bottom: 1px dotted black;
+  text-align: center;
+  /* padding-top: 10px; */
+  margin: 10px 0;
+  /* padding: 10px 0; */
+`
+
+export const TotalPrice = styled.h1`
+  color: black;
+  padding: 10px 0;
+  font-size: 20px;
+  font: bold;
+`
+export const OptionTitle = styled.h1`
+  font: bold;
+  font-size: 20px;
+  text-align: center;
+  padding-bottom: 10px;
+`
+export const OptionGroup = styled.div`
+  border-top: 1px dotted black;
+  /* border-bottom: 1px dotted black; */
+`
+export const OptionGroupName = styled.h1`
+  font-size: 20px;
+  margin: 10px 0;
+  /* padding: 20px 0; */
+`

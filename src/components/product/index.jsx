@@ -86,10 +86,10 @@ function Product({ name, price, description, optionGroup, addToCart, img }) {
           <p>{description}</p>
           {optionGroup && optionGroup.length > 0 && (
             <>
-              <h3>옵션 선택</h3>
+              <S.OptionTitle>옵션 선택</S.OptionTitle>
               {optionGroup.map((group, groupIndex) => (
-                <div key={groupIndex}>
-                  <h3>{group.name}</h3>
+                <S.OptionGroup key={groupIndex}>
+                  <S.OptionGroupName>{group.name}</S.OptionGroupName>
                   {group.options.map((option, optionIndex) => (
                     <FormControlLabel
                       key={optionIndex}
@@ -104,24 +104,27 @@ function Product({ name, price, description, optionGroup, addToCart, img }) {
                       label={`${option?.name || "미정의"} (${option?.price || 0}원)`}
                     />
                   ))}
-                </div>
+                </S.OptionGroup>
               ))}
             </>
           )}
           {(!optionGroup || optionGroup.length === 0) && <p>사용 가능한 옵션이 없습니다.</p>}
+          <S.Total>
+            <S.TotalPrice>총 가격: {totalPrice}원</S.TotalPrice>
+            {selectedOptions.length > 0 && (
+              <p>
+                선택한 옵션:{" "}
+                {selectedOptions
+                  .map((option) => optionGroup[option.groupIndex]?.options[option.optionIndex]?.name)
+                  .join(", ")}
+              </p>
+            )}
+          </S.Total>
+          {/* 선택한 옵션에 대한 총 가격 표시 */}
           <S.ModalButtonWrapper>
-            <Button onClick={handleAddToCart}>장바구니</Button>
             <Button onClick={handleCloseModal}>닫기</Button>
+            <Button onClick={handleAddToCart}>장바구니</Button>
           </S.ModalButtonWrapper>
-          {selectedOptions.length > 0 && (
-            <p>
-              선택한 옵션:{" "}
-              {selectedOptions
-                .map((option) => optionGroup[option.groupIndex]?.options[option.optionIndex]?.name)
-                .join(", ")}
-            </p>
-          )}
-          <p>총 가격: {totalPrice}원</p> {/* 선택한 옵션에 대한 총 가격 표시 */}
         </S.ModalWrapper>
       </Modal>
     </Container>
