@@ -1,9 +1,11 @@
 import React from "react"
 import { Box, Button, Container, FormControlLabel, TextField, Typography } from "@mui/material"
 // import { CheckBox } from "@mui/icons-material"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 function LoginForm() {
+  const nav = useNavigate()
+
   return (
     <Container component="main" maxWidth="sm">
       <Box sx={{ marginTop: 8, display: "flex", flexDirection: "column", alignItems: "center" }}>
@@ -21,8 +23,17 @@ function LoginForm() {
           margin="normal"
         />
         {/* <FormControlLabel control={<CheckBox value="remember" color="primary" />} label="Remember me" /> */}
-        <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }} style={{ height: "50px" }}>
-          login
+        <Button
+          onClick={() => {
+            nav("dashHome")
+          }}
+          type="submit"
+          fullWidth
+          variant="contained"
+          sx={{ mt: 3, mb: 2 }}
+          style={{ height: "50px" }}
+        >
+          로그인
         </Button>
         <span>
           아직 회원이 아니신가요?<Link to="/register">회원가입</Link>

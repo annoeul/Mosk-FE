@@ -22,6 +22,18 @@ export const CartCount = styled.span`
   margin-right: 20px;
 `
 
+export const CartModalProduct = styled.div`
+  background-color: white;
+  border-radius: 10px;
+  max-height: 70vh;
+  width: 100%;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  border-color: #000;
+  display: flex;
+  flex-direction: column;
+`
+
 export const CartModalTitle = styled.h1`
   padding: 20px;
   text-align: center;

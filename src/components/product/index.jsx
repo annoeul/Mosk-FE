@@ -49,6 +49,7 @@ function Product({ name, price, description, optionGroup, addToCart, img, cartIt
 
     setTotalPrice(updatedPrice)
   }, [selectedOptions])
+
   const handleAddToCart = () => {
     const options = optionGroup.map((group, groupIndex) => {
       const selectedOptionIndex = selectedOptions.find((opt) => opt.groupIndex === groupIndex)?.optionIndex
@@ -60,23 +61,33 @@ function Product({ name, price, description, optionGroup, addToCart, img, cartIt
       }
     })
 
-    const existingCartItem =
-      cartItems && cartItems.find((item) => item.name === name && item.options.length === options.length)
+    const existingCartItemIndex = cartItems.findIndex(
+      (item) => item.name === name && item.options.length === options.length,
+    )
 
-    if (existingCartItem) {
-      existingCartItem.quantity += 1 // 기존 아이템의 수량 증가
-      setCartItems([...cartItems]) // 장바구니 상태 업데이트
+    if (existingCartItemIndex !== -1) {
+      // 이미 동일한 아이템이 장바구니에 있는 경우
+      const existingCartItem = cartItems[existingCartItemIndex]
+      const updatedOptions = [...existingCartItem.options, ...options]
+      const updatedCartItem = {
+        ...existingCartItem,
+        options: updatedOptions,
+        quantity: existingCartItem.quantity + 1,
+      }
+      const updatedCartItems = [...cartItems]
+      updatedCartItems.splice(existingCartItemIndex, 1, updatedCartItem)
+      setCartItems(updatedCartItems)
     } else {
+      // 장바구니에 새로운 아이템 추가
       const item = {
         name: name,
         price: totalPrice,
         description: description,
         options: options.filter(Boolean),
-        quantity: 1, // 새로운 아이템의 수량 설정
+        quantity: 1,
       }
-
-      setCartItems([...cartItems, item]) // 새로운 아이템 추가
-      console.log("장바구니에 추가된 상품:", item)
+      setCartItems([...cartItems, item])
+      console.log("추가아이템 : ", item)
     }
 
     handleCloseModal() // 모달 닫기
@@ -128,7 +139,13 @@ function Product({ name, price, description, optionGroup, addToCart, img, cartIt
               <p>
                 선택한 옵션:{" "}
                 {selectedOptions
-                  .map((option) => optionGroup[option.groupIndex]?.options[option.optionIndex]?.name)
+                  .map((option) => {
+                    const group = optionGroup[option.groupIndex]
+                    const selectedOption = group.options[option.optionIndex]
+                    return `${group.name}: ${selectedOption ? selectedOption.name : "미정의"} (${
+                      selectedOption ? selectedOption.price : 0
+                    }원)`
+                  })
                   .join(", ")}
               </p>
             )}

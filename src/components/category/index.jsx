@@ -12,10 +12,9 @@ function Category({ items, selectedCategory, onChange }) {
           style={{
             fontSize: "15px",
             fontWeight: "bold",
-            // border: "1px outset black ",
-            // margin: "5px",
             whiteSpace: "nowrap",
-            // marginTop: "50px",
+            backgroundColor: category.id === selectedCategory ? "#a399a1" : "transparent",
+            color: category.id === selectedCategory ? "#fff" : "#000",
           }}
           onClick={() => onChange(category.id)}
         >

@@ -2,7 +2,7 @@ import React from "react"
 import { Container } from "react-bootstrap"
 import TopBar from "../../common/topbar"
 
-function Home() {
+function DashHome() {
   return (
     <>
       <TopBar />
@@ -10,4 +10,4 @@ function Home() {
   )
 }
 
-export default Home
+export default DashHome
