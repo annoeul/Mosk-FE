@@ -38,8 +38,20 @@ function KioskMain() {
   }, [])
 
   const addToCart = (item) => {
-    console.log("Adding item to cart:", item)
-    setCartItems([...cartItems, item]) // 장바구니 아이템 추가
+    // 장바구니에 이미 동일한 아이템이 있는지 확인
+    const existingItemIndex = cartItems.findIndex((cartItem) => cartItem.id === item.id)
+
+    if (existingItemIndex !== -1) {
+      // 이미 장바구니에 있는 아이템인 경우 수량을 증가시킴
+      const updatedCartItems = [...cartItems]
+      updatedCartItems[existingItemIndex].quantity += 1
+
+      setCartItems(updatedCartItems)
+    } else {
+      // 장바구니에 없는 아이템인 경우 수량을 1로 설정하여 추가
+      const newItem = { ...item, quantity: 1 }
+      setCartItems([...cartItems, newItem])
+    }
   }
 
   const handleCategoryChange = (categoryId) => {
@@ -53,7 +65,13 @@ function KioskMain() {
         <Cart cartItems={cartItems} />
         <Category items={items} selectedCategory={selectedCategory} onChange={handleCategoryChange} />
       </div>
-      <Menu items={items} selectedCategory={selectedCategory} addToCart={addToCart} />
+      <Menu
+        cartItems={cartItems}
+        setCartItems={setCartItems}
+        items={items}
+        selectedCategory={selectedCategory}
+        addToCart={addToCart}
+      />
       <Link to="/login">로그인창</Link>
       <p style={{ textAlign: "center", paddingTop: "50px" }}>By Dajeon PolyTechic Team3</p>
     </Container>
