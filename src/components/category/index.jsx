@@ -10,11 +10,14 @@ function Category({ items, selectedCategory, onChange }) {
         <Button
           key={category.id}
           style={{
+            border: "none",
+            borderBottom: `3px solid ${category.id === selectedCategory ? "#a399a1" : "transparent"}`,
             fontSize: "15px",
             fontWeight: "bold",
             whiteSpace: "nowrap",
-            backgroundColor: category.id === selectedCategory ? "#a399a1" : "transparent",
-            color: category.id === selectedCategory ? "#fff" : "#000",
+            margin: "5px 7px",
+            backgroundColor: "transparent",
+            color: category.id === selectedCategory ? "#a399a1" : "#000",
           }}
           onClick={() => onChange(category.id)}
         >
