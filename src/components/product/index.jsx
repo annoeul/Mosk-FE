@@ -105,6 +105,7 @@ function Product({ name, price, description, optionGroup, img, cartItems, setCar
         </S.ProductName>
       </S.ProductWrapper>
 
+      {/* 옵션모달 */}
       <Modal open={modalOpen} onClose={handleCloseModal}>
         <S.ModalWrapper>
           <h2 style={{ fontSize: "1.5rem", padding: "15px 0" }}>{name}</h2>
