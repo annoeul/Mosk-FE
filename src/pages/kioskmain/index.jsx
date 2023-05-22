@@ -5,6 +5,7 @@ import Category from "../../components/category"
 import Menu from "../../components/menu"
 import { Link } from "react-router-dom"
 import Cart from "../../components/cart"
+import Logo from "../../components/common/logo/"
 import "reset-css"
 
 function KioskMain() {
@@ -60,6 +61,7 @@ function KioskMain() {
 
   return (
     <Container style={{ height: "100vh", backgroundColor: "#ddd" }}>
+      {/* {showLogo && <Logo size={40} />} 로고가 보이는 조건 추가 */}
       {/* <Logo size={40} /> */}
       <div>
         <Cart cartItems={cartItems} setCartItems={setCartItems} addToCart={addToCart} />
