@@ -4,7 +4,7 @@ import { Modal, Button, Slide } from "@material-ui/core"
 import * as S from "./style"
 import { useNavigate } from "react-router-dom"
 
-function Cart({ cartItems }) {
+function Cart({ cartItems, setCartItems }) {
   const navigate = useNavigate()
   const [modalOpen, setModalOpen] = useState(false)
 
@@ -16,8 +16,14 @@ function Cart({ cartItems }) {
     setModalOpen(false)
   }
 
+  const handleRemoveItem = (index) => {
+    const updatedCartItems = [...cartItems]
+    updatedCartItems.splice(index, 1)
+    setCartItems(updatedCartItems)
+  }
+
   const itemCounts = cartItems.reduce((counts, item) => {
-    const itemKey = `${item.name}-${item.options.join("-")}`
+    const itemKey = `${item.name}-${item.options.map((option) => option.name).join("-")}`
     if (counts[itemKey]) {
       counts[itemKey] += 1
     } else {
@@ -53,7 +59,9 @@ function Cart({ cartItems }) {
                 {Object.entries(itemCounts).map(([itemKey, itemCount]) => {
                   const [itemName, ...itemOptions] = itemKey.split("-")
                   const item = cartItems.find(
-                    (item) => item.name === itemName && item.options.join("-") === itemOptions.join("-"),
+                    (item) =>
+                      item.name === itemName &&
+                      item.options.map((option) => option.name).join("-") === itemOptions.join("-"),
                   )
                   return (
                     <div
@@ -65,13 +73,21 @@ function Cart({ cartItems }) {
                         padding: "10px 0",
                       }}
                     >
-                      <S.ProductImg src="/img/logo.png" size={30} />
+                      <S.ProductImg src={item.img} size={30} />
                       <div style={{ textAlign: "end", margin: "0 20px" }}>
                         <h3 style={{ fontWeight: "bold" }}>{item.name}</h3>
                         {itemOptions.length > 0 && <p>-옵션: {itemOptions.join(", ")}</p>}
                         <p>-가격: {item.price}원</p>
                         <p>-개수: {itemCount}</p>
                       </div>
+                      <Button
+                        variant="outlined"
+                        color="secondary"
+                        onClick={() => handleRemoveItem(item.index)}
+                        style={{ alignSelf: "center", marginRight: "20px" }}
+                      >
+                        제거
+                      </Button>
                     </div>
                   )
                 })}

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { Container, Button, Modal, Checkbox, FormControlLabel } from "@material-ui/core"
 import * as S from "./style"
 
-function Product({ name, price, description, optionGroup, addToCart, img, cartItems, setCartItems }) {
+function Product({ name, price, description, optionGroup, img, cartItems, setCartItems }) {
   const [modalOpen, setModalOpen] = useState(false)
   const [selectedOptions, setSelectedOptions] = useState([])
   const [totalPrice, setTotalPrice] = useState(price)
@@ -51,15 +51,17 @@ function Product({ name, price, description, optionGroup, addToCart, img, cartIt
   }, [selectedOptions])
 
   const handleAddToCart = () => {
-    const options = optionGroup.map((group, groupIndex) => {
-      const selectedOptionIndex = selectedOptions.find((opt) => opt.groupIndex === groupIndex)?.optionIndex
+    const options = optionGroup
+      .map((group, groupIndex) => {
+        const selectedOptionIndex = selectedOptions.find((opt) => opt.groupIndex === groupIndex)?.optionIndex
 
-      if (selectedOptionIndex !== undefined) {
-        const selectedOption = group.options[selectedOptionIndex]
-        const optionWithPrice = { ...selectedOption, price: selectedOption.price }
-        return optionWithPrice
-      }
-    })
+        if (selectedOptionIndex !== undefined) {
+          const selectedOption = group.options[selectedOptionIndex]
+          const optionWithPrice = { ...selectedOption, price: selectedOption.price }
+          return optionWithPrice
+        }
+      })
+      .filter(Boolean)
 
     const existingCartItemIndex = cartItems.findIndex(
       (item) => item.name === name && item.options.length === options.length,
@@ -87,7 +89,6 @@ function Product({ name, price, description, optionGroup, addToCart, img, cartIt
         quantity: 1,
       }
       setCartItems([...cartItems, item])
-      console.log("추가아이템 : ", item)
     }
 
     handleCloseModal() // 모달 닫기
