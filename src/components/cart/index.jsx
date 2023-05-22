@@ -22,6 +22,20 @@ function Cart({ cartItems, setCartItems }) {
     setCartItems(updatedCartItems)
   }
 
+  const handleDecreaseQuantity = (index) => {
+    const updatedCartItems = [...cartItems]
+    if (updatedCartItems[index].quantity > 1) {
+      updatedCartItems[index].quantity -= 1
+    }
+    setCartItems(updatedCartItems)
+  }
+
+  const handleIncreaseQuantity = (index) => {
+    const updatedCartItems = [...cartItems]
+    updatedCartItems[index].quantity += 1
+    setCartItems(updatedCartItems)
+  }
+
   const itemCounts = cartItems.reduce((counts, item) => {
     const itemKey = `${item.name}-${item.options.map((option) => option.name).join("-")}`
     if (counts[itemKey]) {
@@ -32,7 +46,7 @@ function Cart({ cartItems, setCartItems }) {
     return counts
   }, {})
 
-  const totalPrice = cartItems.reduce((total, item) => total + item.price, 0)
+  const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0)
 
   return (
     <>
@@ -63,6 +77,8 @@ function Cart({ cartItems, setCartItems }) {
                       item.name === itemName &&
                       item.options.map((option) => option.name).join("-") === itemOptions.join("-"),
                   )
+                  const itemIndex = cartItems.indexOf(item)
+
                   return (
                     <div
                       key={itemKey}
@@ -73,21 +89,59 @@ function Cart({ cartItems, setCartItems }) {
                         padding: "10px 0",
                       }}
                     >
-                      <S.ProductImg src={item.img} size={30} />
-                      <div style={{ textAlign: "end", margin: "0 20px" }}>
+                      {/* <S.ProductImg src={item.img} size={30} /> */}
+                      <div style={{ textAlign: "start", margin: "0 20px" }}>
                         <h3 style={{ fontWeight: "bold" }}>{item.name}</h3>
                         {itemOptions.length > 0 && <p>-옵션: {itemOptions.join(", ")}</p>}
                         <p>-가격: {item.price}원</p>
                         <p>-개수: {itemCount}</p>
                       </div>
-                      <Button
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          justifyContent: "center",
+                          marginRight: "20px",
+                        }}
+                      >
+                        <Button
+                          variant="outlined"
+                          color="primary"
+                          onClick={() => handleDecreaseQuantity(itemIndex)}
+                          style={{
+                            borderRadius: "50%",
+                            width: "30px",
+                            height: "30px",
+                            minWidth: "auto",
+                            padding: "0",
+                            marginRight: "5px",
+                          }}
+                        >
+                          -1
+                        </Button>
+                        <Button
+                          variant="outlined"
+                          color="primary"
+                          onClick={() => handleIncreaseQuantity(itemIndex)}
+                          style={{
+                            borderRadius: "50%",
+                            width: "30px",
+                            height: "30px",
+                            minWidth: "auto",
+                            padding: "0",
+                          }}
+                        >
+                          +1
+                        </Button>
+                      </div>
+                      {/* <Button
                         variant="outlined"
                         color="secondary"
-                        onClick={() => handleRemoveItem(item.index)}
-                        style={{ alignSelf: "center", marginRight: "20px" }}
+                        onClick={() => handleRemoveItem(itemIndex)}
+                        style={{ alignSelf: "center" }}
                       >
                         제거
-                      </Button>
+                      </Button> */}
                     </div>
                   )
                 })}
