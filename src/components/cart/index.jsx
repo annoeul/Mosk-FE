@@ -22,10 +22,20 @@ function Cart({ cartItems, setCartItems }) {
     setCartItems(updatedCartItems)
   }
 
+  // const handleDecreaseQuantity = (index) => {
+  //   const updatedCartItems = [...cartItems]
+  //   if (updatedCartItems[index].quantity > 1) {
+  //     updatedCartItems[index].quantity -= 1
+  //   }
+  //   setCartItems(updatedCartItems)
+  // }
+
   const handleDecreaseQuantity = (index) => {
     const updatedCartItems = [...cartItems]
     if (updatedCartItems[index].quantity > 1) {
       updatedCartItems[index].quantity -= 1
+    } else {
+      updatedCartItems.splice(index, 1) // Remove item when quantity is 1
     }
     setCartItems(updatedCartItems)
   }
@@ -94,7 +104,7 @@ function Cart({ cartItems, setCartItems }) {
                         <h3 style={{ fontWeight: "bold" }}>{item.name}</h3>
                         {itemOptions.length > 0 && <p>-옵션: {itemOptions.join(", ")}</p>}
                         <p>-가격: {item.price}원</p>
-                        <p>-개수: {itemCount}</p>
+                        <p>-개수: {item.quantity}</p>
                       </div>
                       <div
                         style={{
