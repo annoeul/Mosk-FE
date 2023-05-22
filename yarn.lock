@@ -1568,6 +1568,25 @@
   dependencies:
     tslib "^2.4.0"
 
+"@tosspayments/payment-widget-sdk@^0.7.3":
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/@tosspayments/payment-widget-sdk/-/payment-widget-sdk-0.7.3.tgz#26a20aec98a782355252f9dab6693b09740105a0"
+  integrity sha512-nkPgfBFm7Y8qtWkVIUQE3RavPNrrhMstGtq8IbfKTckUX8/WZHSCrzTUji7k9ptuloUq4d74fGGabWw9vYyzVg==
+  dependencies:
+    "@tosspayments/payment-widget__types" "^0.0.13"
+
+"@tosspayments/payment-widget-types@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@tosspayments/payment-widget-types/-/payment-widget-types-0.0.4.tgz#e6016a81805798b61129d0b5c8e6409bc0d59905"
+  integrity sha512-XYazYhks+Ky/WVfUlaEDVQIYk93ALqw2CSQ5/d/ig+MREusucEMRCU6K4Iq/0aeZn3ElpA8X2mkXUP1htykOng==
+
+"@tosspayments/payment-widget__types@^0.0.13":
+  version "0.0.13"
+  resolved "https://registry.yarnpkg.com/@tosspayments/payment-widget__types/-/payment-widget__types-0.0.13.tgz#e37d5177506dd5321b7ca8c0ec15443492008a4e"
+  integrity sha512-FfSll0uRf3iVefrS6SI2RUiyqsmKKp5tw0EDN0GK/l4PP7baBQmp0F55QlGLNDdTH1coemN4eKkz45NO4DMpNg==
+  dependencies:
+    "@tosspayments/payment-widget-types" "^0.0.4"
+
 "@types/json5@^0.0.29":
   version "0.0.29"
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
