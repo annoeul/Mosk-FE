@@ -1,11 +1,24 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import * as S from "./style"
-import { Container } from "react-bootstrap"
 
 function Logo({ size }) {
+  const [showLogo, setShowLogo] = useState(true)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowLogo(false)
+    }, 1500)
+
+    return () => clearTimeout(timer)
+  }, [])
+
   return (
     <S.LogoWrapper>
-      <S.Logo src="/img/logo.png" size={size} />
+      {showLogo ? (
+        <S.LogoFadeOut>
+          <S.Logo src="/img/logo.png" size={size} />
+        </S.LogoFadeOut>
+      ) : null}
     </S.LogoWrapper>
   )
 }
