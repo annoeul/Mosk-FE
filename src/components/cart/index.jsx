@@ -22,14 +22,6 @@ function Cart({ cartItems, setCartItems }) {
     setCartItems(updatedCartItems)
   }
 
-  // const handleDecreaseQuantity = (index) => {
-  //   const updatedCartItems = [...cartItems]
-  //   if (updatedCartItems[index].quantity > 1) {
-  //     updatedCartItems[index].quantity -= 1
-  //   }
-  //   setCartItems(updatedCartItems)
-  // }
-
   const handleDecreaseQuantity = (index) => {
     const updatedCartItems = [...cartItems]
     if (updatedCartItems[index].quantity > 1) {
@@ -47,7 +39,10 @@ function Cart({ cartItems, setCartItems }) {
   }
 
   const itemCounts = cartItems.reduce((counts, item) => {
-    const itemKey = `${item.name}-${item.options.map((option) => option.name).join("-")}`
+    const itemKey = JSON.stringify({
+      name: item.name,
+      options: item.options.map((option) => option.name),
+    })
     if (counts[itemKey]) {
       counts[itemKey] += 1
     } else {
@@ -81,11 +76,11 @@ function Cart({ cartItems, setCartItems }) {
             {cartItems.length > 0 ? (
               <div style={{ flex: 1, overflowY: "auto" }}>
                 {Object.entries(itemCounts).map(([itemKey, itemCount]) => {
-                  const [itemName, ...itemOptions] = itemKey.split("-")
+                  const { name, options } = JSON.parse(itemKey)
                   const item = cartItems.find(
                     (item) =>
-                      item.name === itemName &&
-                      item.options.map((option) => option.name).join("-") === itemOptions.join("-"),
+                      item.name === name &&
+                      JSON.stringify(item.options.map((option) => option.name)) === JSON.stringify(options),
                   )
                   const itemIndex = cartItems.indexOf(item)
 
@@ -102,7 +97,7 @@ function Cart({ cartItems, setCartItems }) {
                       {/* <S.ProductImg src={item.img} size={30} /> */}
                       <div style={{ textAlign: "start", margin: "0 20px" }}>
                         <h3 style={{ fontWeight: "bold" }}>{item.name}</h3>
-                        {itemOptions.length > 0 && <p>-옵션: {itemOptions.join(", ")}</p>}
+                        {options.length > 0 && <p>-옵션: {options.join(", ")}</p>}
                         <p>-가격: {item.price}원</p>
                         <p>-개수: {item.quantity}</p>
                       </div>
