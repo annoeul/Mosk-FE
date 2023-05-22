@@ -156,15 +156,11 @@ function Cart({ cartItems, setCartItems }) {
               <p>장바구니가 비어 있습니다.</p>
             )}
             <S.ButtonWrapper>
-              <Button
-                style={{ width: "50%", backgroundColor: "#f089d1" }}
-                variant="outlined"
-                onClick={handleCloseModal}
-              >
+              <Button style={{ width: "50%" }} variant="outlined" onClick={handleCloseModal}>
                 닫기
               </Button>
               <Button
-                style={{ width: "50%", backgroundColor: "#74bee8" }}
+                style={{ width: "50%" }}
                 variant="outlined"
                 onClick={() => {
                   navigate("/pay")
