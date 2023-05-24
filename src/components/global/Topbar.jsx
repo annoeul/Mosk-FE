@@ -19,7 +19,8 @@ const Topbar = () => {
 
   return (
     <Container>
-      <Box justifyContent="flex-end" p={2}>
+      <Box marginLeft={100} />
+      <Box display="flex" justifyContent="flex-end" p={2}>
         {/* SEARCH BAR */}
         <Box backgroundColor={colors.primary[400]} borderRadius="3px">
           <InputBase sx={{ ml: 2, flex: 1 }} placeholder="search" />

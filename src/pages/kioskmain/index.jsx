@@ -60,10 +60,10 @@ function KioskMain() {
   }
 
   return (
-    <Container style={{ height: "100vh", backgroundColor: "#ddd" }}>
+    <Container style={{ height: "100vh", backgroundColor: "#ebedf0", margin: 0, padding: 0 }}>
       {/* {showLogo && <Logo size={40} />} 로고가 보이는 조건 추가 */}
       {/* <Logo size={40} /> */}
-      <div>
+      <div style={{ backgroundColor: "#bbc2c7" }}>
         <Cart cartItems={cartItems} setCartItems={setCartItems} addToCart={addToCart} />
         <Category items={items} selectedCategory={selectedCategory} onChange={handleCategoryChange} />
       </div>
