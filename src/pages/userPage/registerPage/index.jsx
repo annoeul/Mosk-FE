@@ -1,5 +1,5 @@
 import React from "react"
-import RegisterForm from "../../../components/dash/register/index"
+import RegisterForm from "../../../components/user/register/index"
 import * as S from "./style"
 import { Container } from "react-bootstrap"
 import Logo from "../../../components/common/logo"

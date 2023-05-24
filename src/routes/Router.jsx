@@ -1,12 +1,11 @@
 import React from "react"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import KioskMain from "../pages/kioskmain"
-
-import LoginPage from "../pages/dashPage/loginPage"
-import RegisterPage from "../pages/dashPage/registerPage"
-import StoreRegisterPage from "../pages/dashPage/storeRegisterPage"
+import LoginPage from "../pages/userPage/loginPage"
+import RegisterPage from "../pages/userPage/registerPage"
+import StoreRegisterPage from "../pages/userPage/storeRegisterPage"
 import PayPage from "../pages/payPage"
-import HomePage from "../pages/dashPage/homePage"
+import HomePage from "../pages/userPage/homePage"
 
 function Router() {
   return (

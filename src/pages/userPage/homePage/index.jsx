@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 
-import DashHome from "../../../components/dash/dashHome"
+import DashHome from "../../../components/user/dashHome"
 
 function HomePage() {
   return (
