@@ -6,7 +6,7 @@ import LoginPage from "../pages/dashPage/loginPage"
 import RegisterPage from "../pages/dashPage/registerPage"
 import StoreRegisterPage from "../pages/dashPage/storeRegisterPage"
 import PayPage from "../pages/payPage"
-import DashHome from "../components/dash/dashHome"
+import HomePage from "../pages/dashPage/homePage"
 
 function Router() {
   return (
@@ -18,7 +18,7 @@ function Router() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/register/store" element={<StoreRegisterPage />} />
-        <Route path="/dashhome" element={<DashHome />} />
+        <Route path="/dashhome" element={<HomePage />} />
       </Routes>
     </BrowserRouter>
   )
