@@ -5,7 +5,7 @@ export const ProductWrapper = styled.div`
   top: 10px;
   right: 4px;
   display: flex;
-  border-bottom: 1px dotted black;
+  border-bottom: 1px groove black;
   padding: 10px;
   margin-top: 10px;
   justify-content: space-between;
