@@ -35,7 +35,7 @@ export const CartModalProduct = styled.div`
 `
 
 export const CartModalTitle = styled.h1`
-  padding: 20px;
+  padding: 12px;
   text-align: center;
   font-weight: 900;
   background-color: #ccc;
