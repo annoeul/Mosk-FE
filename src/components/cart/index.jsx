@@ -6,6 +6,11 @@ import { useNavigate } from "react-router-dom"
 
 function Cart({ cartItems, setCartItems }) {
   const navigate = useNavigate()
+
+  const handlePayment = () => {
+    navigate("/pay", { state: { cartItems: cartItems } })
+  }
+
   const [modalOpen, setModalOpen] = useState(false)
 
   const handleCartClick = () => {
@@ -159,13 +164,7 @@ function Cart({ cartItems, setCartItems }) {
               <Button style={{ width: "50%" }} variant="outlined" onClick={handleCloseModal}>
                 닫기
               </Button>
-              <Button
-                style={{ width: "50%" }}
-                variant="outlined"
-                onClick={() => {
-                  navigate("/pay")
-                }}
-              >
+              <Button style={{ width: "50%" }} variant="outlined" onClick={handlePayment}>
                 결제하기
               </Button>
             </S.ButtonWrapper>

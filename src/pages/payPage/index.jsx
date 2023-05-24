@@ -1,14 +1,17 @@
 import { useEffect, useRef, useState } from "react"
 import { loadPaymentWidget } from "@tosspayments/payment-widget-sdk"
 import { nanoid } from "nanoid"
+import { useLocation } from "react-router-dom"
 
-const clientKey = "test_ck_D5GePWvyJnrK0W0k6q8gLzN97Eoq"
+const clientKey = "test_ck_OAQ92ymxN34NkoNA9lArajRKXvdk"
 const customerKey = "YbX2HuSlsC9uVJW6NMRMj"
 
-export default function App() {
+export default function Pay() {
   const paymentWidgetRef = useRef(null)
   const paymentMethodsWidgetRef = useRef(null)
   const [price, setPrice] = useState(50_000)
+  const location = useLocation()
+  const cartItems = location.state?.cartItems || []
 
   useEffect(() => {
     ;(async () => {
@@ -35,6 +38,12 @@ export default function App() {
     const paymentWidget = paymentWidgetRef.current
 
     try {
+      const items = cartItems.map((item) => ({
+        name: item.name,
+        quantity: 1,
+        price: item.price,
+      }))
+
       await paymentWidget?.requestPayment({
         orderId: nanoid(),
         orderName: "토스 티셔츠 외 2건",
@@ -42,6 +51,7 @@ export default function App() {
         customerEmail: "customer123@gmail.com",
         successUrl: `${window.location.origin}/success`,
         failUrl: `${window.location.origin}/fail`,
+        items,
       })
     } catch (err) {
       console.log(err)
@@ -53,13 +63,15 @@ export default function App() {
       <h1>주문서</h1>
       <div id="payment-widget" />
       <div>
-        <input
-          type="checkbox"
-          onChange={(event) => {
-            setPrice(event.target.checked ? price - 5_000 : price + 5_000)
-          }}
-        />
-        <label>5,000원 할인 쿠폰 적용</label>
+        <h2>장바구니 내역</h2>
+        <ul>
+          {cartItems.map((item) => (
+            <li key={item.id}>
+              <p>{item.name}</p>
+              <p>{item.price}원</p>
+            </li>
+          ))}
+        </ul>
       </div>
       <button onClick={handlePayment}>결제하기</button>
     </div>
