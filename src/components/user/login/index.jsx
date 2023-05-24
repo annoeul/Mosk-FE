@@ -25,7 +25,7 @@ function LoginForm() {
         {/* <FormControlLabel control={<CheckBox value="remember" color="primary" />} label="Remember me" /> */}
         <Button
           onClick={() => {
-            nav("dashHome")
+            nav("/dashHome")
           }}
           type="submit"
           fullWidth

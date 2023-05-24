@@ -17,7 +17,7 @@ function RegisterForm() {
             <TextField name="email" label="이메일" required fullWidth autoComplete="email" margin="normal" autoFocus />
           </Grid>
           <Grid item xs={2}>
-            <Button type="submit" variant="contained" sx={{ mt: 2, mb: 2, ml: 1 }} style={{ height: "55px" }}>
+            <Button type="submit" variant="contained" sx={{ mt: 2, mb: 2 }} style={{ height: "55px" }}>
               중복확인
             </Button>
           </Grid>
