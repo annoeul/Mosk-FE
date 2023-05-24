@@ -6,5 +6,6 @@ export const CategoryWrapper = styled.div`
   align-items: center;
   /* justify-content: center; */
   overflow: auto;
-  width: 100%;
+  margin: 0 auto;
+  /* width: 100%; */
 `
