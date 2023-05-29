@@ -6,9 +6,9 @@ import { Container } from "@material-ui/core"
 function App() {
   return (
     <div className="App">
-      <Container style={{ margin: 0, padding: 0 }}>
-        <Router />
-      </Container>
+      {/* <Container> */}
+      <Router />
+      {/* </Container> */}
     </div>
   )
 }
