@@ -13,7 +13,7 @@ function DashPage() {
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+        <div style={{ display: "flex" }}>
           <Sidebar />
           {/* <main className="content"> */}
           <Topbar />
