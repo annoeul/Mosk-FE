@@ -74,7 +74,7 @@ function KioskMain() {
         selectedCategory={selectedCategory}
         addToCart={addToCart}
       />
-      <Link to="/login">로그인창</Link>
+      {/* <Link to="/login">로그인창</Link> */}
       <p style={{ textAlign: "center", paddingTop: "50px" }}>By Dajeon PolyTechic Team3</p>
     </Container>
   )

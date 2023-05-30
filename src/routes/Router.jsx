@@ -17,12 +17,12 @@ function Router() {
         <Route path="/pay" element={<PayPage />} />
         {/* <Route path="/cart" element={<CartPage />} /> */}
         {/* <Route path="/dashhome" element={<DashPages />} /> */}
-        <Route path="/login" element={<LoginPage />} />
+        {/* <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/register/store" element={<StoreRegisterPage />} />
         <Route path="/dashhome" element={<DashPages />}>
           <Route path="setMenu" element={<SetMenu />} />
-        </Route>
+        </Route> */}
       </Routes>
     </BrowserRouter>
   )

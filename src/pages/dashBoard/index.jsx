@@ -15,10 +15,9 @@ function DashPage() {
         <CssBaseline />
         <div style={{ display: "flex" }}>
           <Sidebar />
-          {/* <main className="content"> */}
+
           <Topbar />
           <Outlet />
-          {/* </main> */}
         </div>
       </ThemeProvider>
     </ColorModeContext.Provider>

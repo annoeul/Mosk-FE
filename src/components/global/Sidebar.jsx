@@ -136,7 +136,7 @@ const Sidebar = () => {
             /> */}
               <Item
                 title="메뉴 관리"
-                to="setMenu"
+                to="/setMenu"
                 icon={<ReceiptOutlinedIcon />}
                 selected={selected}
                 setSelected={setSelected}
