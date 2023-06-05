@@ -22,7 +22,7 @@ function Category({ items, selectedCategory, onChange }) {
             }}
             onClick={() => onChange(category.id)}
           >
-            {category.category}
+            {category.name}
           </Button>
         ))}
       </S.CategoryWrapper>
