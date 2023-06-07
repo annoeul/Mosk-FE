@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined"
-import { Modal, Button, Slide } from "@material-ui/core"
+import { Modal, Button, Slide, Dialog, DialogTitle, DialogContent, DialogActions } from "@material-ui/core"
 import * as S from "./style"
 import { useNavigate } from "react-router-dom"
 
@@ -12,6 +12,8 @@ function Cart({ cartItems, setCartItems }) {
   }
 
   const [modalOpen, setModalOpen] = useState(false)
+  const [removeItemIndex, setRemoveItemIndex] = useState(-1)
+  const [removeConfirmationOpen, setRemoveConfirmationOpen] = useState(false)
 
   const handleCartClick = () => {
     setModalOpen(true)
@@ -22,9 +24,20 @@ function Cart({ cartItems, setCartItems }) {
   }
 
   const handleRemoveItem = (index) => {
+    setRemoveItemIndex(index)
+    setRemoveConfirmationOpen(true)
+  }
+
+  const handleRemoveConfirmationClose = () => {
+    setRemoveItemIndex(-1)
+    setRemoveConfirmationOpen(false)
+  }
+
+  const handleRemoveConfirmed = () => {
     const updatedCartItems = [...cartItems]
-    updatedCartItems.splice(index, 1)
+    updatedCartItems.splice(removeItemIndex, 1)
     setCartItems(updatedCartItems)
+    handleRemoveConfirmationClose()
   }
 
   const handleDecreaseQuantity = (index) => {
@@ -32,7 +45,7 @@ function Cart({ cartItems, setCartItems }) {
     if (updatedCartItems[index].quantity > 1) {
       updatedCartItems[index].quantity -= 1
     } else {
-      updatedCartItems.splice(index, 1) // Remove item when quantity is 1
+      handleRemoveItem(index)
     }
     setCartItems(updatedCartItems)
   }
@@ -95,7 +108,7 @@ function Cart({ cartItems, setCartItems }) {
                       style={{
                         display: "flex",
                         justifyContent: "space-between",
-                        borderBottom: "1px dotted black",
+                        borderBottom: "0.01px solid #a0a4a8",
                         padding: "10px 0",
                       }}
                     >
@@ -171,6 +184,19 @@ function Cart({ cartItems, setCartItems }) {
           </S.CartModalProduct>
         </Slide>
       </Modal>
+
+      <Dialog open={removeConfirmationOpen} onClose={handleRemoveConfirmationClose}>
+        {/* <DialogTitle>제거 확인</DialogTitle> */}
+        <DialogContent>정말로 제거하시겠습니까?</DialogContent>
+        <DialogActions style={{ justifyContent: "space-between" }}>
+          <Button variant="outlined" onClick={handleRemoveConfirmationClose}>
+            취소
+          </Button>
+          <Button variant="outlined" onClick={handleRemoveConfirmed} color="secondary">
+            제거
+          </Button>
+        </DialogActions>
+      </Dialog>
     </>
   )
 }

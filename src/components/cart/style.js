@@ -54,8 +54,8 @@ export const ProductImg = styled.img`
 `
 export const TotalPrice = styled.div`
   text-align: center;
-  align-items: center;
-  margin: 0 auto;
+  /* align-items: center; */
+  /* margin: 0 auto; */
   /* padding-top: 10px; */
   font-size: 22px;
   /* background-color: #ddd; */
