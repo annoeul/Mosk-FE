@@ -3,9 +3,6 @@ import { loadPaymentWidget } from "@tosspayments/payment-widget-sdk"
 import { nanoid } from "nanoid"
 import { useLocation } from "react-router-dom"
 
-const clientKey = "test_ck_OAQ92ymxN34NkoNA9lArajRKXvdk"
-const customerKey = "YbX2HuSlsC9uVJW6NMRMj"
-
 export default function Pay() {
   const paymentWidgetRef = useRef(null)
   const paymentMethodsWidgetRef = useRef(null)
