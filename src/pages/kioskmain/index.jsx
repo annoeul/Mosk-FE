@@ -11,6 +11,7 @@ function KioskMain() {
   const [items, setItems] = useState([])
   const [selectedCategory, setSelectedCategory] = useState("")
   const [cartItems, setCartItems] = useState([])
+  const [storeName, setStoreName] = useState("")
 
   const getData = async () => {
     try {
@@ -18,6 +19,7 @@ function KioskMain() {
       if (response.ok) {
         const data = await response.json()
         setItems(data.data)
+        setStoreName(data.data[0].storeName)
       } else {
         console.log("Error: ", response.status)
       }
@@ -26,9 +28,9 @@ function KioskMain() {
     }
   }
 
-  useEffect(() => {
-    console.log(items)
-  }, [items])
+  // useEffect(() => {
+  //   console.log(items)
+  // }, [items])
 
   useEffect(() => {
     getData()
@@ -59,8 +61,12 @@ function KioskMain() {
 
   return (
     <Container style={{ height: "100vh", backgroundColor: "#ebedf0", margin: 0, padding: 0 }}>
-      <div style={{ backgroundColor: "#bbc2c7" }}>
+      {/* <div style={{ backgroundColor: "#bbc2c7" }}> */}
+      <div style={{ display: "flex", justifyContent: "space-between", textAlign: "center", fontSize: "20px" }}>
+        <p>{storeName}</p>
         <Cart cartItems={cartItems} setCartItems={setCartItems} addToCart={addToCart} />
+      </div>
+      <div>
         <Category items={items} selectedCategory={selectedCategory} onChange={handleCategoryChange} />
       </div>
       <Menu
@@ -70,8 +76,8 @@ function KioskMain() {
         selectedCategory={selectedCategory}
         addToCart={addToCart}
       />
-      <Link to="/login">로그인창</Link>
-      <p style={{ textAlign: "center", paddingTop: "50px" }}>By Dajeon PolyTechnic Team3</p>
+      {/* <Link to="/login">로그인창</Link> */}
+      <p style={{ textAlign: "center", paddingTop: "50px" }}>By Dajeon PolyTechnic Team3 Mosk</p>
     </Container>
   )
 }
