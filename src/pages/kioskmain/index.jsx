@@ -2,16 +2,17 @@ import React, { useState, useEffect } from "react"
 import { Container } from "@material-ui/core"
 import Category from "../../components/category"
 import Menu from "../../components/menu"
-import { Link } from "react-router-dom"
 import Cart from "../../components/cart"
-import Logo from "../../components/common/logo/"
 import "reset-css"
 
 function KioskMain() {
   const [items, setItems] = useState([])
+  const [products, setProducts] = useState([])
   const [selectedCategory, setSelectedCategory] = useState("")
   const [cartItems, setCartItems] = useState([])
   const [storeName, setStoreName] = useState("")
+  const [productId, setProductId] = useState("")
+  const [productIds, setProductIds] = useState([])
 
   const getData = async () => {
     try {
@@ -20,6 +21,8 @@ function KioskMain() {
         const data = await response.json()
         setItems(data.data)
         setStoreName(data.data[0].storeName)
+
+        extractProductIds()
       } else {
         console.log("Error: ", response.status)
       }
@@ -28,12 +31,57 @@ function KioskMain() {
     }
   }
 
-  // useEffect(() => {
-  //   console.log(items)
-  // }, [items])
+  const extractProductIds = () => {
+    //각 카테고리의 상품들의 아이디를 추출
+    items.forEach((item) => {
+      //각 카테고리의 상품들 하나하나에 접근
+      if (item.products.length > 0) {
+        item.products.forEach((product) => {
+          handleProductIdsAdd(product.id)
+        })
+      }
+    })
+  }
+
+  const handleProductIdsAdd = (productId) => {
+    setProductIds((prevProductIds) => [...prevProductIds, productId])
+  }
+
+  // const getProduct = async (productId) => {
+  //   try {
+  //     const response = await fetch(`http://localhost:9090/api/v1/public/products/${productId}`)
+  //     if (response.ok) {
+  //       const data = await response.json()
+  //       // 상품 데이터를 처리하는 로직을 여기에 추가
+  //       // 이미지 조회 함수 호출
+  //       getImage(productId)
+  //     } else {
+  //       console.log("Error: ", response.status)
+  //     }
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
+
+  const getImage = async (productId) => {
+    try {
+      const response = await fetch(`http://localhost:9090/api/v1/public/products/img/${productId}`)
+      if (response.ok) {
+        return await response.json()
+      } else {
+        console.log("Error: ", response.status)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   useEffect(() => {
     getData()
+    console.log(items)
+    productIds.forEach((productId) => {
+      getImage(productId)
+    })
   }, [])
 
   useEffect(() => {
@@ -75,9 +123,11 @@ function KioskMain() {
         items={items}
         selectedCategory={selectedCategory}
         addToCart={addToCart}
+        getImage={getImage}
       />
       {/* <Link to="/login">로그인창</Link> */}
       <p style={{ textAlign: "center", paddingTop: "50px" }}>By Dajeon PolyTechnic Team3 Mosk</p>
+      <button onClick={() => console.log(items)}>하윙</button>
     </Container>
   )
 }

@@ -97,7 +97,8 @@ function Product({ name, price, description, optionGroup, img, cartItems, setCar
   return (
     <Container>
       <S.ProductWrapper onClick={handleOpenModal}>
-        <S.ProductImg src={img} alt={name} size={100} />
+        <S.ProductImg src={`data:image/png;base64,${img}`} alt={name} size={100} />
+        {/* <S.ProductImg src={img} alt={name} size={100} /> */}
         <S.ProductName>
           <p style={{ fontWeight: "bolder", fontSize: "1.3rem" }}>{name}</p>
           <br />
