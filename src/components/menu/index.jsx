@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react"
 import Product from "../product"
 import * as S from "./style"
 import { Container } from "@material-ui/core"
+import { Box } from "@mui/material"
 
 function Menu({ items, selectedCategory, addToCart, cartItems, setCartItems, getImage }) {
   const [filteredCategory, setFilteredCategory] = useState(null)
@@ -35,8 +36,8 @@ function Menu({ items, selectedCategory, addToCart, cartItems, setCartItems, get
   }
 
   return (
-    <Container style={{ margin: 0, padding: 0 }}>
-      <S.MenuWrapper style={{ height: "70vh", overflowY: "auto" }}>
+    <Container>
+      <S.MenuWrapper style={{ height: "70vh", overflowY: "auto", backgroundColor: "#e8e6e6", borderRadius: "25px" }}>
         {filteredCategory.products.map((item) => (
           <Product
             key={item.id}
@@ -51,7 +52,28 @@ function Menu({ items, selectedCategory, addToCart, cartItems, setCartItems, get
           />
         ))}
       </S.MenuWrapper>
-      <button onClick={() => console.log(filteredCategory)}>gdgd</button>
+      <div
+        style={{
+          backgroundColor: "white",
+          width: "40px",
+          height: "40px",
+          borderRadius: "50%",
+          position: "absolute",
+          left: "0",
+          bottom: "103px",
+        }}
+      ></div>
+      <div
+        style={{
+          backgroundColor: "white",
+          width: "40px",
+          height: "40px",
+          borderRadius: "50%",
+          position: "absolute",
+          right: "0",
+          bottom: "103px",
+        }}
+      ></div>
     </Container>
   )
 }

@@ -5,7 +5,12 @@ export const CategoryWrapper = styled.div`
   display: flex;
   align-items: center;
   /* justify-content: center; */
-  overflow: auto;
+  overflow-x: scroll;
+  scrollbar-width: no;
   margin: 0 auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
   /* width: 100%; */
 `

@@ -6,8 +6,9 @@ export const MenuWrapper = styled.div`
   margin-top: 15px;
   padding-bottom: 10px;
   width: 100%;
-  /* border: 1px dotted grey; */
-  box-shadow: 5px 5px 5px 5px #ccc;
+
+  border: 3px solid #c3a758;
+  /* box-shadow: 5px 5px 5px 5px #ddd; */
 
   /* width: 100vw; */
 `

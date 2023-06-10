@@ -18,7 +18,7 @@ function Category({ items, selectedCategory, onChange }) {
               whiteSpace: "nowrap",
               margin: "0 auto",
               backgroundColor: "transparent",
-              color: category.id === selectedCategory ? "#a399a1" : "#000",
+              color: category.id === selectedCategory ? "#ae9220" : "#5a5f62",
             }}
             onClick={() => onChange(category.id)}
           >

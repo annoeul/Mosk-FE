@@ -108,15 +108,50 @@ function KioskMain() {
   }
 
   return (
-    <Container style={{ height: "100vh", backgroundColor: "#ebedf0", margin: 0, padding: 0 }}>
+    <Container style={{ height: "100vh", margin: 0, padding: 0, backgroundColor: "#ffffff" }}>
       {/* <div style={{ backgroundColor: "#bbc2c7" }}> */}
-      <div style={{ display: "flex", justifyContent: "space-between", textAlign: "center", fontSize: "20px" }}>
-        <p>{storeName}</p>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          textAlign: "center",
+          fontSize: "20px",
+
+          // backgroundColor: "black",
+          // height: "10%",
+        }}
+      >
+        <p style={{ margin: "30px auto" }}>{storeName}</p>
         <Cart cartItems={cartItems} setCartItems={setCartItems} addToCart={addToCart} />
       </div>
-      <div>
-        <Category items={items} selectedCategory={selectedCategory} onChange={handleCategoryChange} />
-      </div>
+      <Category items={items} selectedCategory={selectedCategory} onChange={handleCategoryChange} />
+      <div></div>
+      <div
+        style={{
+          backgroundColor: "white",
+          width: "40px",
+          height: "40px",
+          borderRadius: "50%",
+          borderLeft: "none",
+          borderTop: "none",
+          position: "absolute",
+
+          // boxShadow: "0 0 1px 1px rgba(0, 0, 0, 0.3)",
+        }}
+      ></div>
+      <div
+        style={{
+          backgroundColor: "white",
+
+          width: "40px",
+          height: "40px",
+          borderRadius: "50%",
+          position: "absolute",
+          right: "0",
+        }}
+      ></div>
+
       <Menu
         cartItems={cartItems}
         setCartItems={setCartItems}
@@ -125,9 +160,9 @@ function KioskMain() {
         addToCart={addToCart}
         getImage={getImage}
       />
+
       {/* <Link to="/login">로그인창</Link> */}
       <p style={{ textAlign: "center", paddingTop: "50px" }}>By Dajeon PolyTechnic Team3 Mosk</p>
-      <button onClick={() => console.log(items)}>하윙</button>
     </Container>
   )
 }
