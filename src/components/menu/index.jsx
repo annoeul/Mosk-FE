@@ -37,7 +37,7 @@ function Menu({ items, selectedCategory, addToCart, cartItems, setCartItems, get
 
   return (
     <Container>
-      <S.MenuWrapper style={{ height: "70vh", overflowY: "auto", backgroundColor: "#e8e6e6", borderRadius: "25px" }}>
+      <S.MenuWrapper>
         {filteredCategory.products.map((item) => (
           <Product
             key={item.id}
@@ -52,28 +52,8 @@ function Menu({ items, selectedCategory, addToCart, cartItems, setCartItems, get
           />
         ))}
       </S.MenuWrapper>
-      <div
-        style={{
-          backgroundColor: "white",
-          width: "40px",
-          height: "40px",
-          borderRadius: "50%",
-          position: "absolute",
-          left: "0",
-          bottom: "103px",
-        }}
-      ></div>
-      <div
-        style={{
-          backgroundColor: "white",
-          width: "40px",
-          height: "40px",
-          borderRadius: "50%",
-          position: "absolute",
-          right: "0",
-          bottom: "103px",
-        }}
-      ></div>
+      <S.LeftCircle />
+      <S.RightCircle />
     </Container>
   )
 }

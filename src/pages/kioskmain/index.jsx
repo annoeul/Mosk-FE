@@ -4,7 +4,7 @@ import Category from "../../components/category"
 import Menu from "../../components/menu"
 import Cart from "../../components/cart"
 import "reset-css"
-import { getData, extractProductIds, handleProductIdsAdd, getImage } from "../../apis/api"
+import { LeftCircleDiv, RightCircleDiv } from "./style"
 
 function KioskMain() {
   const [items, setItems] = useState([])
@@ -15,8 +15,54 @@ function KioskMain() {
   const [productId, setProductId] = useState("")
   const [productIds, setProductIds] = useState([])
 
+  const getData = async () => {
+    try {
+      const response = await fetch("http://localhost:9090/api/v1/public/categories/all/1")
+      if (response.ok) {
+        const data = await response.json()
+        setItems(data.data)
+        setStoreName(data.data[0].storeName)
+
+        extractProductIds()
+      } else {
+        console.log("Error: ", response.status)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const extractProductIds = () => {
+    //각 카테고리의 상품들의 아이디를 추출
+    items.forEach((item) => {
+      //각 카테고리의 상품들 하나하나에 접근
+      if (item.products.length > 0) {
+        item.products.forEach((product) => {
+          handleProductIdsAdd(product.id)
+        })
+      }
+    })
+  }
+
+  const handleProductIdsAdd = (productId) => {
+    setProductIds((prevProductIds) => [...prevProductIds, productId])
+  }
+
+  const getImage = async (productId) => {
+    try {
+      const response = await fetch(`http://localhost:9090/api/v1/public/products/img/${productId}`)
+      if (response.ok) {
+        return await response.json()
+      } else {
+        console.log("Error: ", response.status)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   useEffect(() => {
-    getData(setItems, setStoreName)
+    getData()
     console.log(items)
     productIds.forEach((productId) => {
       getImage(productId)
@@ -55,35 +101,15 @@ function KioskMain() {
           alignItems: "center",
           textAlign: "center",
           fontSize: "20px",
+          backgroundColor: "#ddd",
         }}
       >
-        <p style={{ margin: "30px auto" }}>{storeName}</p>
+        <p style={{ margin: "30px auto", fontFamily: "monospace" }}>{storeName}</p>
         <Cart cartItems={cartItems} setCartItems={setCartItems} addToCart={addToCart} />
       </div>
       <Category items={items} selectedCategory={selectedCategory} onChange={handleCategoryChange} />
-      <div></div>
-      <div
-        style={{
-          backgroundColor: "white",
-          width: "40px",
-          height: "40px",
-          borderRadius: "50%",
-          borderLeft: "none",
-          borderTop: "none",
-          position: "absolute",
-        }}
-      ></div>
-      <div
-        style={{
-          backgroundColor: "white",
-
-          width: "40px",
-          height: "40px",
-          borderRadius: "50%",
-          position: "absolute",
-          right: "0",
-        }}
-      ></div>
+      <LeftCircleDiv />
+      <RightCircleDiv />
       <Menu
         cartItems={cartItems}
         setCartItems={setCartItems}
@@ -92,6 +118,8 @@ function KioskMain() {
         addToCart={addToCart}
         getImage={getImage}
       />
+
+      {/* <Link to="/login">로그인창</Link> */}
       <p style={{ textAlign: "center", paddingTop: "50px" }}>By Dajeon PolyTechnic Team3 Mosk</p>
     </Container>
   )

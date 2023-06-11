@@ -11,12 +11,12 @@ function Category({ items, selectedCategory, onChange }) {
           <Button
             key={category.id}
             style={{
-              border: "none",
-              borderBottom: `3px groove ${category.id === selectedCategory ? "#a399a1" : "transparent"}`,
+              border: `1px groove ${category.id === selectedCategory ? "#a399a1" : "transparent"}`,
+              borderRadius: "11px",
               fontSize: "15px",
               fontWeight: "bold",
               whiteSpace: "nowrap",
-              margin: "0 auto",
+              margin: "10px auto",
               backgroundColor: "transparent",
               color: category.id === selectedCategory ? "#ae9220" : "#5a5f62",
             }}
