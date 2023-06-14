@@ -9,6 +9,9 @@ export const MenuWrapper = styled.div`
   overflow-y: auto;
   background-color: #e8e6e6;
   border-radius: 25px;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `
 export const Circle = styled.div`
   background-color: white;
@@ -16,7 +19,7 @@ export const Circle = styled.div`
   height: 40px;
   border-radius: 50%;
   position: absolute;
-  bottom: 102px;
+  bottom: 85px;
 `
 
 export const LeftCircle = styled(Circle)`

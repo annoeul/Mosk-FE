@@ -40,8 +40,16 @@
 .read-the-docs {
   color: #888;
 } */
-.App {
-  /* max-width: 425px; */
-  /* margin: 0 auto; */
-  /* width: 100%; */
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  transition: opacity 0.5s ease-out;
+  opacity: 1;
+}
+
+.show-logo {
+  opacity: 0;
+  transform: translateY(-50px);
 }

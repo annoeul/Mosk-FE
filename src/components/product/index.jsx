@@ -100,7 +100,7 @@ function Product({ name, price, description, optionGroup, img, cartItems, setCar
         <S.ProductImg src={`data:image/png;base64,${img}`} alt={name} size={100} />
         {/* <S.ProductImg src={img} alt={name} size={100} /> */}
         <S.ProductName>
-          <p style={{ fontWeight: "bolder", fontSize: "1.3rem" }}>{name}</p>
+          <p style={{ fontWeight: "bold", fontSize: "1.5rem", marginTop: "13px" }}>{name}</p>
           <br />
           <p>{totalPrice}원</p> {/* 선택한 옵션에 대한 가격 표시 */}
         </S.ProductName>
@@ -109,7 +109,17 @@ function Product({ name, price, description, optionGroup, img, cartItems, setCar
       {/* 옵션모달 */}
       <Modal open={modalOpen} onClose={handleCloseModal}>
         <S.ModalWrapper>
-          <h2 style={{ fontSize: "1.5rem", padding: "15px 0" }}>{name}</h2>
+          <h2
+            style={{
+              fontSize: "1.5rem",
+              padding: "15px 0",
+              textAlign: "center",
+              marginBottom: "10px",
+              fontWeight: "bold",
+            }}
+          >
+            {name}
+          </h2>
           <p>{description}</p>
           {optionGroup && optionGroup.length > 0 && (
             <>
@@ -129,6 +139,7 @@ function Product({ name, price, description, optionGroup, img, cartItems, setCar
                         />
                       }
                       label={`${option?.name || "미정의"} (${option?.price || 0}원)`}
+                      style={{ display: "block" }} // 이 부분을 추가하여 한 줄에 하나씩 표시하도록 설정합니다.
                     />
                   ))}
                 </S.OptionGroup>
