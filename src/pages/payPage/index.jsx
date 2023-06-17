@@ -38,12 +38,12 @@ export default function App() {
 
     try {
       await paymentWidget?.requestPayment({
-        amount,
+        // amount,
         orderId: nanoid(),
         orderName: "토스 티셔츠 외 2건",
         customerName: "김토스",
         customerEmail: "customer123@gmail.com",
-        successUrl: `http://localhost:3000/Success`,
+        successUrl: `${window.location.origin}/success`,
         failUrl: `${window.location.origin}/fail`,
       })
     } catch (err) {

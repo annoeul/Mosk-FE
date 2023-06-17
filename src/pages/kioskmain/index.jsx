@@ -15,9 +15,9 @@ function KioskMain() {
   const [productId, setProductId] = useState("")
   const [productIds, setProductIds] = useState([])
 
-  const getData = async () => {
+  const getData = async (storeId) => {
     try {
-      const response = await fetch("http://localhost:9090/api/v1/public/categories/all/1")
+      const response = await fetch(`http://localhost:9090/api/v1/public/categories/all/${storeId}`)
       if (response.ok) {
         const data = await response.json()
         setItems(data.data)
@@ -62,7 +62,7 @@ function KioskMain() {
   }
 
   useEffect(() => {
-    getData()
+    getData(1)
     console.log(items)
     productIds.forEach((productId) => {
       getImage(productId)

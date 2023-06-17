@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import KioskMain from "../pages/kioskmain"
 import PayPage from "../pages/payPage"
 import Logo from "../components/common/logo"
+import Success from "../pages/success"
+import Fail from "../pages/fail"
 
 function Router() {
   const [showLogo, setShowLogo] = useState(true)
@@ -13,8 +15,8 @@ function Router() {
       setShowLogo(false)
       setTimeout(() => {
         setShowKioskMain(true)
-      }, 500) // 로고가 사라진 후 0.5초 후에 KioskMain이 나타나도록 지연 설정
-    }, 2000)
+      }, 650) // 로고가 사라진 후 0.5초 후에 KioskMain이 나타나도록 지연 설정
+    }, 1000)
 
     return () => clearTimeout(timer)
   }, [])
@@ -32,7 +34,7 @@ function Router() {
             opacity: showLogo ? 1 : 0,
           }}
         >
-          <Logo size={100} />
+          <Logo size={150} />
         </div>
 
         {showKioskMain && (
@@ -40,6 +42,8 @@ function Router() {
             <Routes>
               <Route path="/" element={<KioskMain />} />
               <Route path="/pay" element={<PayPage />} />
+              <Route path="/success" element={<Success />} />
+              <Route path="/fail" element={<Fail />} />
             </Routes>
           </div>
         )}
