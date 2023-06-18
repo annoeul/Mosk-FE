@@ -87,18 +87,14 @@ function Product({ id, name, price, description, optionGroup, img, cartItems, se
         description: description,
         options: options.filter(Boolean),
         quantity: 1,
+        productId: id, // ProductId 추가
+        optionIds: options.map((option) => option.id), // OptionId들 추가
       }
       setCartItems([...cartItems, item])
     }
 
-    console.log("ProductId:", id) // 상품의 ID를 콘솔에 출력
-    options.forEach((option) => {
-      console.log("OptionId:", option.id) // 선택한 옵션
-    })
-
     handleCloseModal() // 모달 닫기
   }
-
   return (
     <Container>
       <S.ProductWrapper onClick={handleOpenModal}>
