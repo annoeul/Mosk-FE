@@ -157,14 +157,6 @@ function Cart({ cartItems, setCartItems }) {
                           +1
                         </Button>
                       </div>
-                      {/* <Button
-                        variant="outlined"
-                        color="secondary"
-                        onClick={() => handleRemoveItem(itemIndex)}
-                        style={{ alignSelf: "center" }}
-                      >
-                        제거
-                      </Button> */}
                     </div>
                   )
                 })}

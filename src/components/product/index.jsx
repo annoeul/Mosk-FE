@@ -97,12 +97,13 @@ function Product({ name, price, description, optionGroup, img, cartItems, setCar
   return (
     <Container>
       <S.ProductWrapper onClick={handleOpenModal}>
-        <S.ProductImg src={`data:image/png;base64,${img}`} alt={name} size={100} />
+        <S.ProductImg src={`data:image/png;base64,${img}`} alt={name} size={90} />
         {/* <S.ProductImg src={img} alt={name} size={100} /> */}
         <S.ProductName>
           <p style={{ fontWeight: "bold", fontSize: "1.5rem", marginTop: "13px" }}>{name}</p>
           <br />
           <p>{totalPrice}원</p> {/* 선택한 옵션에 대한 가격 표시 */}
+          <br />
         </S.ProductName>
       </S.ProductWrapper>
 
