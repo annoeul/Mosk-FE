@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { Container, Button, Modal, Checkbox, FormControlLabel } from "@material-ui/core"
 import * as S from "./style"
 
-function Product({ name, price, description, optionGroup, img, cartItems, setCartItems }) {
+function Product({ id, name, price, description, optionGroup, img, cartItems, setCartItems }) {
   const [modalOpen, setModalOpen] = useState(false)
   const [selectedOptions, setSelectedOptions] = useState([])
   const [totalPrice, setTotalPrice] = useState(price)
@@ -90,6 +90,11 @@ function Product({ name, price, description, optionGroup, img, cartItems, setCar
       }
       setCartItems([...cartItems, item])
     }
+
+    console.log("ProductId:", id) // 상품의 ID를 콘솔에 출력
+    options.forEach((option) => {
+      console.log("OptionId:", option.id) // 선택한 옵션
+    })
 
     handleCloseModal() // 모달 닫기
   }

@@ -41,6 +41,7 @@ function Menu({ items, selectedCategory, addToCart, cartItems, setCartItems, get
         {filteredCategory.products.map((item) => (
           <Product
             key={item.id}
+            id={item.id}
             name={item.name}
             price={item.price}
             description={item.description}
