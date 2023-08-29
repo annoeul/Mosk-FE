@@ -7,11 +7,11 @@
 만약 이 글을 읽고 계신 당신께서 오늘 아침에도 키오스크를 사용하기 위해 줄을 서서 기다리셨다면 이제 이 프로젝트가 세상에 탄생할 때가 되었음을 의미합니다.
 
 ## 2.팀 구성원
-|이름|역할|
-|:---:|:---:|
-|홍성민|backend|
-|배현석|backend|
-|안노을|frontend|
+|이름|역할|주소|
+|:---:|:---:|:---:|
+|홍성민|backend|https://github.com/hhpp1205|
+|배현석|backend|https://github.com/Hounds1|
+|안노을|frontend|https://github.com/annoeul|
 
 ## 3.화면
 <img width="1179" alt="asd" src="https://github.com/annoeul/Mosk-FE/assets/116801305/bec3070c-8704-4e7c-8fcd-61eaea60c93c">
