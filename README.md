@@ -13,7 +13,10 @@
 |배현석|backend|https://github.com/Hounds1|
 |안노을|frontend|https://github.com/annoeul|
 
-## 3.화면
+## 3. 진행기간
+2023.04 ~ 진행중
+
+## 4.화면
 <img width="1179" alt="asd" src="https://github.com/annoeul/Mosk-FE/assets/116801305/bec3070c-8704-4e7c-8fcd-61eaea60c93c">
 
 
