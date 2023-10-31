@@ -3,8 +3,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import KioskMain from "../pages/kioskmain"
 import PayPage from "../pages/payPage"
 import Logo from "../components/common/logo"
-import Success from "../pages/success"
 import Fail from "../pages/fail"
+import SuccessPage from "../pages/success"
 
 function Router() {
   const [showLogo, setShowLogo] = useState(true)
@@ -42,7 +42,7 @@ function Router() {
             <Routes>
               <Route path="/" element={<KioskMain />} />
               <Route path="/pay" element={<PayPage />} />
-              <Route path="/success" element={<Success />} />
+              <Route path="/success" element={<SuccessPage />} />
               <Route path="/fail" element={<Fail />} />
             </Routes>
           </div>

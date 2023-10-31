@@ -1,47 +1,20 @@
-async function getData(setItems, setStoreName) {
-  try {
-    const response = await fetch("http://localhost:9090/api/v1/public/categories/all/1")
-    if (response.ok) {
-      const data = await response.json()
-      setItems(data.data)
-      setStoreName(data.data[0].storeName)
+const API_BASE_URL = "http://localhost:9090/api/v1/public"
 
-      extractProductIds(data.data, handleProductIdsAdd)
-    } else {
-      console.log("Error: ", response.status)
-    }
-  } catch (error) {
-    console.log(error)
+export const getData = async (storeId) => {
+  const response = await fetch(`${API_BASE_URL}/categories/all/${storeId}`)
+  if (response.ok) {
+    const data = await response.json()
+    return data.data
+  } else {
+    throw new Error(`Error: ${response.status}`)
   }
 }
-
-function extractProductIds(items, handleProductIdsAdd) {
-  //각 카테고리의 상품들의 아이디를 추출
-  items.forEach((item) => {
-    //각 카테고리의 상품들 하나하나에 접근
-    if (item.products.length > 0) {
-      item.products.forEach((product) => {
-        handleProductIdsAdd(product.id)
-      })
-    }
-  })
-}
-
-function handleProductIdsAdd(productId, setProductIds) {
-  setProductIds((prevProductIds) => [...prevProductIds, productId])
-}
-
-async function getImage(productId) {
-  try {
-    const response = await fetch(`http://localhost:9090/api/v1/public/products/img/${productId}`)
-    if (response.ok) {
-      return await response.json()
-    } else {
-      console.log("Error: ", response.status)
-    }
-  } catch (error) {
-    console.log(error)
+export const getProductImage = async (productId) => {
+  const response = await fetch(`${API_BASE_URL}/products/img/${productId}`)
+  if (response.ok) {
+    const data = await response.json()
+    return data
+  } else {
+    throw new Error(`Error: ${response.status}`)
   }
 }
-
-export { getData, extractProductIds, handleProductIdsAdd, getImage }

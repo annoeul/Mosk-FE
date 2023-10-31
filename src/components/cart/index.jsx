@@ -8,6 +8,8 @@ function Cart({ cartItems, setCartItems }) {
   const navigate = useNavigate()
 
   const handlePayment = () => {
+    console.log(cartItems)
+
     navigate("/pay", { state: { cartItems: cartItems } })
   }
 

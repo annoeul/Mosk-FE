@@ -5,14 +5,13 @@ import Menu from "../../components/menu"
 import Cart from "../../components/cart"
 import "reset-css"
 import { LeftCircleDiv, RightCircleDiv } from "./style"
+import { getData, getProductImage } from "../../apis/api"
 
 function KioskMain() {
   const [items, setItems] = useState([])
-  const [products, setProducts] = useState([])
   const [selectedCategory, setSelectedCategory] = useState("")
   const [cartItems, setCartItems] = useState([])
   const [storeName, setStoreName] = useState("")
-  const [productId, setProductId] = useState("")
   const [productIds, setProductIds] = useState([])
 
   const getData = async (storeId) => {
@@ -44,28 +43,35 @@ function KioskMain() {
     })
   }
 
+  // const fetchData = async (storeId) => {
+  //   const response = await getData(storeId)
+  //   extractProductIds()
+  //   console.log(response)
+  // }
+
   const handleProductIdsAdd = (productId) => {
     setProductIds((prevProductIds) => [...prevProductIds, productId])
   }
 
-  const getImage = async (productId) => {
-    try {
-      const response = await fetch(`http://localhost:9090/api/v1/public/products/img/${productId}`)
-      if (response.ok) {
-        return await response.json()
-      } else {
-        console.log("Error: ", response.status)
-      }
-    } catch (error) {
-      console.log(error)
-    }
+  const fetchImage = async (productId) => {
+    const response = await getProductImage(productId)
+    // try {
+    //   const response = await fetch(`http://localhost:9090/api/v1/public/products/img/${productId}`)
+    //   if (response.ok) {
+    //     return await response.json()
+    //   } else {
+    //     console.log("Error: ", response.status)
+    //   }
+    // } catch (error) {
+    //   console.log(error)
+    // }
   }
 
   useEffect(() => {
     getData(1)
     console.log(items)
     productIds.forEach((productId) => {
-      getImage(productId)
+      fetchImage(productId)
     })
   }, [])
 
@@ -116,7 +122,7 @@ function KioskMain() {
         items={items}
         selectedCategory={selectedCategory}
         addToCart={addToCart}
-        getImage={getImage}
+        getImage={fetchImage}
       />
 
       {/* <Link to="/login">로그인창</Link> */}

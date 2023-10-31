@@ -16,6 +16,7 @@ function Menu({ items, selectedCategory, addToCart, cartItems, setCartItems, get
       const updatedProducts = await Promise.all(
         category.products.map(async (product) => {
           const data = await getImage(product.id)
+          console.log("encode" + data.data.encodedImg)
           return { ...product, encodedImg: data.data.encodedImg }
         }),
       )
